@@ -85,6 +85,8 @@
     </ng-container>
 
     <ion-input *ngSwitchCase="ajfFieldTypes.Formula"
+        [ngClass]="'ajf-field-' + fieldInstance.completeName"
+        [class.ajf-validated]="fieldInstance|ajfCheckIfValid"
         [formControl]="curControl"
         type="text"
         readonly>

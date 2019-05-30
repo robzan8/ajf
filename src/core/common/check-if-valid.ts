@@ -20,28 +20,20 @@
  *
  */
 
-import {NgModule} from '@angular/core';
+import {Pipe} from '@angular/core';
+import {AjfFieldInstance} from '../forms';
 
-import {ApplyStylesDirective} from './apply-styles-directive';
-import {AutofocusDirective} from './auto-focus.directive';
-import {FormatIfNumber} from './format-if-number';
-import {TranslateIfString} from './translate-if-string';
-import {CheckIfValid} from './check-if-valid';
-
-@NgModule({
-  declarations: [
-    ApplyStylesDirective,
-    AutofocusDirective,
-    FormatIfNumber,
-    TranslateIfString,
-    CheckIfValid
-  ],
-  exports: [
-    ApplyStylesDirective,
-    AutofocusDirective,
-    FormatIfNumber,
-    TranslateIfString,
-    CheckIfValid
-  ],
-})
-export class AjfCommonModule { }
+@Pipe({ name: 'ajfCheckIfValid' })
+export class CheckIfValid {
+    transform(fieldInstance: AjfFieldInstance): boolean {
+        if (
+            fieldInstance &&
+            fieldInstance.validationResults &&
+            fieldInstance.validationResults.length === 0
+        ) {
+            return true;
+        } else {
+            return false;
+        }
+    }
+}

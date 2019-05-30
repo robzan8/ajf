@@ -62,6 +62,8 @@
     </ng-container>
     <mat-form-field *ngSwitchCase="ajfFieldTypes.Formula">
       <input matInput
+          [ngClass]="'ajf-field-' + fieldInstance.completeName"
+          [class.ajf-validated]="fieldInstance|ajfCheckIfValid"
           type="text"
           [formControl]="curControl"
           readonly>
