@@ -26,7 +26,11 @@ import {ApplyStylesDirective} from './apply-styles-directive';
 import {AutofocusDirective} from './auto-focus.directive';
 import {FormatIfNumber} from './format-if-number';
 import {TranslateIfString} from './translate-if-string';
+<<<<<<< HEAD
 import {CheckIfValid} from './check-if-valid';
+=======
+import {AjfFieldIsValidPipe} from './field-is-valid';
+>>>>>>> 45d88da14a935c6fb6b5ffdec86021752cf491b3
 
 @NgModule({
   declarations: [
@@ -34,9 +38,14 @@ import {CheckIfValid} from './check-if-valid';
     AutofocusDirective,
     FormatIfNumber,
     TranslateIfString,
+<<<<<<< HEAD
     CheckIfValid
+=======
+    AjfFieldIsValidPipe,
+>>>>>>> 45d88da14a935c6fb6b5ffdec86021752cf491b3
   ],
   exports: [
+    AjfFieldIsValidPipe,
     ApplyStylesDirective,
     AutofocusDirective,
     FormatIfNumber,
