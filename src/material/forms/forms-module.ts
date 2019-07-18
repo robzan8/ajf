@@ -39,6 +39,7 @@ import {TranslateModule} from '@ngx-translate/core';
 import {AjfFormsModule as AjfCoreFormsModule} from '@ajf/core/forms';
 import {AjfCommonModule} from '@ajf/core/common';
 import {AjfCalendarModule} from '@ajf/material/calendar';
+import {AjfGeolocationModule} from '@ajf/material/geolocation';
 import {AjfCheckboxGroupModule} from '@ajf/material/checkbox-group';
 import {AjfPageSliderModule} from '@ajf/material/page-slider';
 import {AjfTimeModule} from '@ajf/material/time';
@@ -66,6 +67,7 @@ import {AjfFormRenderer} from './form';
     AjfCoreFormsModule,
     AjfCalendarModule,
     AjfCheckboxGroupModule,
+    AjfGeolocationModule,
     AjfPageSliderModule,
     AjfTimeModule,
     AjfCommonModule

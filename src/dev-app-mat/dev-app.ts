@@ -38,6 +38,7 @@ export class DevAppComponent {
   navItems = [
     {name: 'Examples', route: '/examples'},
     {name: 'Calendar', route: '/calendar'},
+    {name: 'Geolocation', route: '/geolocation'},
     {name: 'Checkbox Group', route: '/checkbox-group'},
     {name: 'Form Builder', route: '/form-builder'},
     {name: 'Forms', route: '/forms'},

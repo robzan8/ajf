@@ -26,6 +26,7 @@ import {AjfCalendarModule} from '@ajf/material/calendar';
 import {AjfCheckboxGroupModule} from '@ajf/material/checkbox-group';
 import {AjfFormBuilderModule} from '@ajf/material/form-builder';
 import {AjfFormsModule} from '@ajf/material/forms';
+import {AjfGeolocationModule} from '@ajf/material/geolocation';
 import {AjfImageModule} from '@ajf/material/image';
 import {AjfNodeIconModule} from '@ajf/material/node-icon';
 import {AjfPageSliderModule} from '@ajf/material/page-slider';
@@ -42,6 +43,7 @@ import {AjfTimeModule} from '@ajf/material/time';
     AjfCheckboxGroupModule,
     AjfFormBuilderModule,
     AjfFormsModule,
+    AjfGeolocationModule,
     AjfImageModule,
     AjfNodeIconModule,
     AjfPageSliderModule,

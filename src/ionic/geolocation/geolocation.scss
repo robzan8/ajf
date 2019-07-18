@@ -1,0 +1,13 @@
+// sass-lint:disable
+ajf-geolocation {
+  position: relative;
+  width: 100%;
+
+  [geolocationContainer] {
+    position: relative;
+    min-width: 100px;
+    min-height: 200px !important;
+    width: 100%;
+    height: 100%;
+  }
+}

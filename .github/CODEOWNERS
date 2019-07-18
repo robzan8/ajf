@@ -15,6 +15,7 @@
 /src/core/table/*                                  @trik
 /src/core/text/*                                   @trik
 /src/core/utils/*                                  @trik
+/src/core/geolocation/*                            @peppedeka
 
 # Ajf material
 /src/material/*                                    @trik
@@ -29,6 +30,7 @@
 /src/material/report-builder/**/*                  @trik
 /src/material/reports/*                            @trik
 /src/material/time/*                               @trik
+/src/material/geolocation/*                        @peppedeka
 
 # Ajf ionic
 /src/ionic/*                                       @trik
@@ -39,6 +41,7 @@
 /src/ionic/node-icon/*                             @trik
 /src/ionic/page-slider/*                           @trik
 /src/ionic/reports/*                               @trik
+/src/ionic/geolocation/*                           @peppedeka
 
 # Ajf monaco
 /src/monaco/*                                      @trik
@@ -65,6 +68,7 @@
 /src/dev-app-mat/report-builder/**                 @trik
 /src/dev-app-mat/reports/**                        @trik
 /src/dev-app-mat/time/**                           @trik
+/src/dev-app-mat/geolocation/**                    @peppedeka
 
 # Dev app ionic
 /src/dev-app-ion/*                                 @trik
@@ -78,6 +82,7 @@
 /src/dev-app-ion/node-icon/**                      @trik
 /src/dev-app-ion/page-slider/**                    @trik
 /src/dev-app-ion/reports/**                        @trik
+/src/dev-app-ion/geolocation/**                    @peppedeka
 
 # E2E app material
 /e2e-mat/*                                         @trik

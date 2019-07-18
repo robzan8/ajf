@@ -31,6 +31,7 @@ import {ExamplesPage} from './examples-page/examples-page';
 import {NodeIconDemo} from './node-icon/node-icon-demo';
 import {PageSliderDemo} from './page-slider/page-slider-demo';
 import {ReportsDemo} from './reports/reports-demo';
+import {GeolocationDemo} from './geolocation/geolocation-demo';
 
 export const DEV_APP_ROUTES: Routes = [
   {path: '', component: DevAppHome},
@@ -42,4 +43,5 @@ export const DEV_APP_ROUTES: Routes = [
   {path: 'node-icon', component: NodeIconDemo},
   {path: 'page-slider', component: PageSliderDemo},
   {path: 'reports', component: ReportsDemo},
+  {path: 'geolocation', component: GeolocationDemo},
 ];

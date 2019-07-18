@@ -12,6 +12,9 @@
           type="text"
           [formControl]="curControl">
     </mat-form-field>
+    <ng-container *ngSwitchCase="ajfFieldTypes.Geolocation">
+        <ajf-geolocation [formControl]="curControl" [tileLayer]="geolocationfInst.field.tileLayer"></ajf-geolocation>
+    </ng-container>
     <mat-form-field *ngSwitchCase="ajfFieldTypes.Number">
       <input matInput
           type="number"

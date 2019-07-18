@@ -288,6 +288,7 @@ export enum AjfFieldType {
   DateInput,
   Time,
   Table,
+  Geolocation,
   LENGTH
 }
 
@@ -698,6 +699,9 @@ export abstract class AjfField extends AjfNode {
     if (thisObj instanceof AjfTimeField) {
       return AjfFieldType.Time;
     }
+    if (thisObj instanceof AjfGeolocationField) {
+      return AjfFieldType.Geolocation;
+    }
     return AjfFieldType.Empty;
   }
 
@@ -749,6 +753,9 @@ export abstract class AjfField extends AjfNode {
         break;
       case AjfFieldType.Table:
         ret = new AjfTableField(obj);
+        break;
+      case AjfFieldType.Geolocation:
+        ret = new AjfGeolocationField(obj);
         break;
       default:
         throw new Error('Invalid field type');
@@ -1139,6 +1146,18 @@ export class AjfTableField extends AjfField {
     this.columnLabels = obj && obj.columnLabels || [];
     this.rowLabels = obj && obj.rowLabels || [];
     this.hideEmptyRows = obj && obj.hideEmptyRows || false;
+  }
+
+  validateValue(value: any): boolean { return value === value.toString(); }
+}
+
+export class AjfGeolocationField extends AjfField {
+  tileLayer: string;
+  constructor(obj?: any) {
+    super(obj);
+
+    this.jsonExportedMembers = this.jsonExportedMembers.concat(['tileLayer']);
+    this.tileLayer = obj && obj.tileLayer || undefined;
   }
 
   validateValue(value: any): boolean { return value === value.toString(); }

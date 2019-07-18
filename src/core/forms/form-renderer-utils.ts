@@ -25,11 +25,13 @@ import {tokenize, Token} from 'esprima';
 import {AjfCondition, AjfFormula} from '@ajf/core/models';
 
 import {
-  AjfField, AjfFieldWithChoices, AjfNode, AjfNodeGroup, AjfRepeatingSlide, AjfSlide, AjfTableField
+  AjfField, AjfFieldWithChoices, AjfNode, AjfNodeGroup,
+  AjfRepeatingSlide, AjfSlide, AjfTableField, AjfGeolocationField
 } from './nodes';
 import {
-  AjfFieldInstance, AjfTableFieldInstance, AjfFieldWithChoicesInstance, AjfNodeGroupInstance,
-  AjfNodeInstance, AjfRepeatingSlideInstance, AjfSlideInstance, IAjfSlideInstance
+  AjfFieldInstance, AjfTableFieldInstance, AjfFieldWithChoicesInstance,
+  AjfNodeGroupInstance, AjfNodeInstance, AjfRepeatingSlideInstance, AjfSlideInstance,
+  IAjfSlideInstance, AjfGeolocationFieldInstance
 } from './nodes-instances';
 import {AjfValidation, AjfValidationGroup} from './validation';
 import {AjfWarning, AjfWarningGroup} from './warning';
@@ -270,6 +272,8 @@ export function nodeToNodeInstance(
     instance = new AjfRepeatingSlideInstance({node: node, prefix: prefix}, context);
   } else if (node instanceof AjfSlide) {
     instance = new AjfSlideInstance({node: node, prefix: prefix}, context);
+  } else if (node instanceof AjfGeolocationField) {
+    instance = new AjfGeolocationFieldInstance({node: node, prefix: prefix}, context);
   }
   if (instance != null) {
     const hasPrefix = prefix != null && prefix.length > 0;

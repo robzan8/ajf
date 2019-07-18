@@ -43,6 +43,7 @@ export class DevAppComponent {
     {name: 'Checkbox Group', route: '/checkbox-group'},
     {name: 'Forms', route: '/forms'},
     {name: 'Image', route: '/image'},
+    {name: 'Geolocation', route: '/geolocation'},
     {name: 'Node Icon', route: '/node-icon'},
     {name: 'Page Slider', route: '/page-slider'},
     {name: 'Reports', route: '/reports'},

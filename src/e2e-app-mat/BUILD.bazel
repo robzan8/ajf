@@ -19,6 +19,7 @@ ng_module(
     "@ngx_translate_core//:core",
     "@ajfdeps//@ngx-translate/http-loader",
     "//src/material/calendar:calendar",
+    "//src/material/geolocation:geolocation",
     "//src/material-examples:examples",
   ]
 )

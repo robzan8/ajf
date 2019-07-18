@@ -29,7 +29,7 @@ import {AjfCondition, AjfFormula} from '@ajf/core/models';
 import {AjfChoice} from './choices';
 import {
   AjfDateField, AjfEmptyField, AjfField, AjfFieldWithChoices, AjfNode, AjfNodeGroup,
-  AjfRepeatingSlide, AjfSlide, AjfTableField, IAjfSlide
+  AjfRepeatingSlide, AjfSlide, AjfTableField, IAjfSlide, AjfGeolocationField
 } from './nodes';
 import {AjfValidationGroup, AjfValidationResult} from './validation';
 import {AjfWarningGroup, AjfWarningResult} from './warning';
@@ -581,3 +581,9 @@ export class AjfEmptyFieldInstance extends AjfFieldInstance {
   get field(): AjfEmptyField { return this.field; }
   set field(field: AjfEmptyField) { this.setNode(field); }
 }
+
+export class AjfGeolocationFieldInstance extends AjfFieldInstance {
+  get field(): AjfGeolocationField { return this.field; }
+  set field(field: AjfGeolocationField) { this.setNode(field); }
+}
+

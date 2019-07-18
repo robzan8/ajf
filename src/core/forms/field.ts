@@ -29,7 +29,7 @@ import {filter, withLatestFrom} from 'rxjs/operators';
 import {AjfFieldType, AjfFieldWithChoices} from './nodes';
 import {
   AjfDateFieldInstance, AjfEmptyFieldInstance, AjfFieldInstance,
-  AjfFieldWithChoicesInstance, AjfTableFieldInstance
+  AjfFieldWithChoicesInstance, AjfTableFieldInstance, AjfGeolocationFieldInstance
 } from './nodes-instances';
 import {AjfFormRendererService} from './form-renderer';
 
@@ -67,6 +67,9 @@ export abstract class AjfFormField implements AfterViewInit, OnDestroy, OnInit {
   get datefInst(): AjfDateFieldInstance { return this._fieldInstance as AjfDateFieldInstance; }
   get tablefInst(): AjfTableFieldInstance { return this._fieldInstance  as AjfTableFieldInstance; }
   get emptyfInst(): AjfEmptyFieldInstance { return this._fieldInstance as AjfEmptyFieldInstance; }
+  get geolocationfInst(): AjfGeolocationFieldInstance {
+    return this._fieldInstance as AjfGeolocationFieldInstance;
+  }
 
   singleChoiceSelect: any;
   multipleChoiceSelect: any;

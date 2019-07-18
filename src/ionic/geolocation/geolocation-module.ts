@@ -20,31 +20,26 @@
  *
  */
 
+import {CommonModule} from '@angular/common';
 import {NgModule} from '@angular/core';
+import {FormsModule} from '@angular/forms';
 
-import {AjfCalendarModule} from '@ajf/ionic/calendar';
-import {AjfCheckboxGroupModule} from '@ajf/ionic/checkbox-group';
-import {AjfFormsModule} from '@ajf/ionic/forms';
-import {AjfImageModule} from '@ajf/ionic/image';
-import {AjfNodeIconModule} from '@ajf/ionic/node-icon';
-import {AjfPageSliderModule} from '@ajf/ionic/page-slider';
-import {AjfReportsModule} from '@ajf/ionic/reports';
-import {AjfGeolocationModule} from '@ajf/ionic/geolocation';
+import {TranslateModule} from '@ngx-translate/core';
 
-/**
- * NgModule that includes all Ajf modules that are required to serve the demo-app.
- */
+import {AjfGeolocationComponent, AjfGeolocationContainerDirective} from './geolocation';
+
 @NgModule({
+  imports: [
+    CommonModule,
+    FormsModule,
+    TranslateModule,
+  ],
+  declarations: [
+    AjfGeolocationComponent,
+    AjfGeolocationContainerDirective
+  ],
   exports: [
-    AjfCalendarModule,
-    AjfCheckboxGroupModule,
-    AjfGeolocationModule,
-    AjfFormsModule,
-    AjfImageModule,
-    AjfNodeIconModule,
-    AjfPageSliderModule,
-    AjfReportsModule,
-    AjfGeolocationModule
-  ]
+    AjfGeolocationComponent,
+  ],
 })
-export class DevAppAjfModule {}
+export class AjfGeolocationModule {}

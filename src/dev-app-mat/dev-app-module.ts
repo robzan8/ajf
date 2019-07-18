@@ -24,7 +24,7 @@ import {HttpClient, HttpClientModule} from '@angular/common/http';
 import {Injector, NgModule} from '@angular/core';
 import {createCustomElement} from '@angular/elements';
 import {MatButtonModule} from '@angular/material/button';
-import {FormsModule} from '@angular/forms';
+import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import {MatExpansionModule} from '@angular/material/expansion';
 import {MatGridListModule} from '@angular/material/grid-list';
 import {MatIconModule} from '@angular/material/icon';
@@ -49,6 +49,7 @@ import {FormBuilderDemo} from './form-builder/form-builder-demo';
 import {FormsDemo} from './forms/forms-demo';
 import {ImageDemo} from './image/image-demo';
 import {NodeIconDemo} from './node-icon/node-icon-demo';
+import {GeolocationDemo} from './geolocation/geolocation-demo';
 import {PageSliderDemo} from './page-slider/page-slider-demo';
 import {ReportBuilderDemo} from './report-builder/report-builder-demo';
 import {ReportsDemo} from './reports/reports-demo';
@@ -66,6 +67,7 @@ export function createTranslateLoader(http: HttpClient): TranslateHttpLoader {
     BrowserModule,
     BrowserAnimationsModule,
     FormsModule,
+    ReactiveFormsModule,
     HttpClientModule,
     MatButtonModule,
     MatExpansionModule,
@@ -89,6 +91,7 @@ export function createTranslateLoader(http: HttpClient): TranslateHttpLoader {
   ],
   declarations: [
     CalendarDemo,
+    GeolocationDemo,
     CheckboxGroupDemo,
     DevAppComponent,
     DevAppHome,

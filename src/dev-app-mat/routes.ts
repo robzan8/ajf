@@ -28,6 +28,7 @@ import {DevAppHome} from './dev-app';
 import {ExamplesPage} from './examples-page/examples-page';
 import {FormBuilderDemo} from './form-builder/form-builder-demo';
 import {FormsDemo} from './forms/forms-demo';
+import {GeolocationDemo} from './geolocation/geolocation-demo';
 import {ImageDemo} from './image/image-demo';
 import {NodeIconDemo} from './node-icon/node-icon-demo';
 import {PageSliderDemo} from './page-slider/page-slider-demo';
@@ -38,6 +39,7 @@ import {TimeDemo} from './time/time-demo';
 export const DEV_APP_ROUTES: Routes = [
   {path: '', component: DevAppHome},
   {path: 'calendar', component: CalendarDemo},
+  {path: 'geolocation', component: GeolocationDemo},
   {path: 'checkbox-group', component: CheckboxGroupDemo},
   {path: 'examples', component: ExamplesPage},
   {path: 'form-builder', component: FormBuilderDemo},

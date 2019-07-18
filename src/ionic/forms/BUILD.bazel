@@ -19,6 +19,7 @@ ng_module(
     "//src/core/common",
     "//src/core/forms",
     "//src/ionic/calendar",
+    "//src/ionic/geolocation",
     "//src/ionic/checkbox-group",
     "//src/ionic/page-slider",
   ],
@@ -51,6 +52,7 @@ ng_test_library(
     "//src/ionic/calendar",
     "//src/ionic/checkbox-group",
     "//src/ionic/page-slider",
+    "//src/ionic/geolocation",
     ":forms"
   ]
 )

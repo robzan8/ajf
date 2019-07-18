@@ -29,6 +29,7 @@ ng_module(
     "//src/material/checkbox-group",
     "//src/material/page-slider",
     "//src/material/time",
+    "//src/material/geolocation",
   ],
 )
 

@@ -23,7 +23,7 @@
 import {HttpClient, HttpClientModule} from '@angular/common/http';
 import {Injector, NgModule} from '@angular/core';
 import {createCustomElement} from '@angular/elements';
-import {FormsModule} from '@angular/forms';
+import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import {BrowserModule} from '@angular/platform-browser';
 import {RouterModule} from '@angular/router';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
@@ -44,6 +44,7 @@ import {ImageDemo} from './image/image-demo';
 import {NodeIconDemo} from './node-icon/node-icon-demo';
 import {PageSliderDemo} from './page-slider/page-slider-demo';
 import {ReportsDemo} from './reports/reports-demo';
+import {GeolocationDemo} from './geolocation/geolocation-demo';
 import {DevAppAjfModule} from './ajf-module';
 import {DEV_APP_ROUTES} from './routes';
 
@@ -58,6 +59,7 @@ export function createTranslateLoader(http: HttpClient): TranslateHttpLoader {
     BrowserModule,
     BrowserAnimationsModule,
     FormsModule,
+    ReactiveFormsModule,
     HttpClientModule,
     IonicModule.forRoot(),
     RouterModule.forRoot(DEV_APP_ROUTES),
@@ -83,6 +85,7 @@ export function createTranslateLoader(http: HttpClient): TranslateHttpLoader {
     DevAppComponent,
     DevAppHome,
     ExamplesPage,
+    GeolocationDemo
   ],
   bootstrap: [DevAppComponent],
 })

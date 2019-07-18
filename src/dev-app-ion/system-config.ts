@@ -92,6 +92,7 @@ System.config({
     '@ajf/core/table': 'dist/packages/core/table/index.js',
     '@ajf/core/text': 'dist/packages/core/text/index.js',
     '@ajf/core/utils': 'dist/packages/core/utils/index.js',
+    '@ajf/core/geolocation': 'dist/packages/core/geolocation/index.js',
     '@ajf/ionic/calendar': 'dist/packages/ionic/calendar/index.js',
     '@ajf/ionic/checkbox-group': 'dist/packages/ionic/checkbox-group/index.js',
     '@ajf/ionic/forms': 'dist/packages/ionic/forms/index.js',
@@ -99,6 +100,7 @@ System.config({
     '@ajf/ionic/node-icon': 'dist/packages/ionic/node-icon/index.js',
     '@ajf/ionic/page-slider': 'dist/packages/ionic/page-slider/index.js',
     '@ajf/ionic/reports': 'dist/packages/ionic/reports/index.js',
+    '@ajf/ionic/geolocation': 'dist/packages/ionic/geolocation/index.js',
   },
   packages: {
     // Thirdparty barrels.

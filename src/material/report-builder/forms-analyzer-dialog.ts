@@ -243,6 +243,7 @@ export class AjfReportBuilderFormsAnalyzerDialog implements OnInit, AfterViewChe
         return 'number';
       case AjfFieldType.MultipleChoice:
       case AjfFieldType.SingleChoice:
+      case AjfFieldType.Geolocation:
         return 'any';
       case AjfFieldType.Number:
         return 'number';
