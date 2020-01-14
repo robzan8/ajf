@@ -41,6 +41,7 @@ System.config({
     'leaflet': 'node:leaflet/leaflet.umd.js',
     'ngx-color-picker': 'node:ngx-color-picker/bundles/ngx-color-picker.umd.js',
     'numeral': 'node:numeral/numeral.umd.js',
+    'pdfmake': 'node:pdfmake',
     'quill': 'node:quill/dist/quill.js',
     'rxjs': 'node_modules/rxjs/bundles/rxjs.umd.min.js',
     'rxjs/operators': 'system-rxjs-operators.js',
