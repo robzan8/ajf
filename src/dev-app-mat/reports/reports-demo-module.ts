@@ -23,6 +23,7 @@
 import {NgModule} from '@angular/core';
 import {FormsModule} from '@angular/forms';
 import {MatGridListModule} from '@angular/material/grid-list';
+import {MatButtonModule} from '@angular/material/button';
 import {RouterModule} from '@angular/router';
 
 import {AjfReportsModule} from '@ajf/material/reports';
@@ -34,6 +35,7 @@ import {ReportsDemo} from './reports-demo';
     AjfReportsModule,
     FormsModule,
     MatGridListModule,
+    MatButtonModule,
     RouterModule.forChild([{path: '', component: ReportsDemo}]),
   ],
   declarations: [

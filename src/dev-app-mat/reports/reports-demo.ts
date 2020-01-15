@@ -20,7 +20,8 @@
  *
  */
 
-import {AjfReportInstance, AjfReportSerializer, createReportInstance} from '@ajf/core/reports';
+import {AjfReportInstance, AjfReportSerializer, createReportInstance,
+  openReportPdf} from '@ajf/core/reports';
 import {Component} from '@angular/core';
 import {TranslateService} from '@ngx-translate/core';
 
@@ -52,5 +53,9 @@ export class ReportsDemo {
       const ctx = JSON.parse(this.context);
       this.report = createReportInstance(report, ctx, this._ts);
     } catch (e) { }
+  }
+
+  printReport() {
+    openReportPdf(this.report);
   }
 }

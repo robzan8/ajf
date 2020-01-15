@@ -47,9 +47,10 @@ export class AjfChartComponent implements AfterViewInit, OnChanges {
   @Input() data: ChartData;
   @Input() options: ChartOptions;
   @Input() chartType: ExtendedChartType;
+  @Input() instance: ChartWidgetInstance;
 
   private _chart: Chart | null;
-  private _chartCanvasElement: any;
+  private _chartCanvasElement: HTMLCanvasElement | null;
   private _chartTypesNeedPoints: ExtendedChartType[] = ['scatter', 'bubble'];
 
   constructor(private _el: ElementRef, private _renderer: Renderer2) { }
@@ -63,6 +64,14 @@ export class AjfChartComponent implements AfterViewInit, OnChanges {
       this._rebuildChart();
     } else if ('options' in changes || 'data' in changes) {
       this._updateChart();
+    }
+    if ('instance' in changes) {
+      this.instance.canvasDataUrl = () => {
+        if (this._chartCanvasElement == null) {
+          return '';
+        }
+        return this._chartCanvasElement.toDataURL();
+      };
     }
   }
 
@@ -124,7 +133,7 @@ export class AjfChartComponent implements AfterViewInit, OnChanges {
       this._renderer.setStyle(this._chartCanvasElement, 'width', 'inherit');
       this._renderer.setStyle(this._chartCanvasElement, 'height', 'inherit');
       this._renderer.appendChild(this._el.nativeElement, this._chartCanvasElement);
-      const ctx = this._chartCanvasElement.getContext('2d');
+      const ctx = this._chartCanvasElement!.getContext('2d');
       this._chart = new chartClass(ctx, {
         type: this.chartType,
         data: this._fixData(this.chartType, this.data),
@@ -160,4 +169,8 @@ export class AjfChartComponent implements AfterViewInit, OnChanges {
     }
     return options;
   }
+}
+
+interface ChartWidgetInstance {
+  canvasDataUrl?(): string;
 }
