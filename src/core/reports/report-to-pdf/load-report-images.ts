@@ -28,12 +28,12 @@ import {
   AjfWidgetWithContentInstance,
   AjfImageWidgetInstance
 } from '@ajf/core/reports';
-import { AjfImageType } from '@ajf/core/image';
+import {AjfImageType} from '@ajf/core/image';
 
 // ImageMap maps image urls to dataurls, like:
 // 'http://whatever.com/image.png': 'data:image/png;base64,...'
 export interface ImageMap {
-  [url: string]: string
+  [url: string]: string;
 }
 
 export function loadReportImages(report: AjfReportInstance): Promise<ImageMap> {
@@ -58,7 +58,8 @@ export function loadReportImages(report: AjfReportInstance): Promise<ImageMap> {
   });
 }
 
-function loadContainerImages(container: AjfReportContainerInstance|AjfWidgetWithContentInstance): Promise<ImageMap> {
+function loadContainerImages(container: AjfReportContainerInstance|AjfWidgetWithContentInstance):
+  Promise<ImageMap> {
   const promises: Promise<ImageMap>[] = [];
   for (let widget of container.content) {
     promises.push(loadWidgetImages(widget));
@@ -94,7 +95,7 @@ function loadWidgetImages(widget: AjfWidgetInstance): Promise<ImageMap> {
           const result: ImageMap = {};
           result[image.url] = r.result as string;
           resolve(result);
-        }
+        };
         r.readAsDataURL(req.response);
       };
       req.open('GET', image.url);

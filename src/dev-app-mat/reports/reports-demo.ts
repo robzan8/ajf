@@ -55,7 +55,7 @@ export class ReportsDemo {
     } catch (e) { }
   }
 
-  printReport() {
-    openReportPdf(this.report);
+  printReport(orientation: string) {
+    openReportPdf(this.report, orientation);
   }
 }

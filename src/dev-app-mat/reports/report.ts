@@ -30,8 +30,8 @@ export const testReport = {
       {
         'widgetType': 0,
         'columns': [
-          -1,
-          -1
+          1,
+          1
         ],
         'content': [
           {
@@ -171,7 +171,11 @@ export const testReport = {
               'aggregation': 0
             }
           }
-        ]
+        ],
+        'styles': {
+          'width': '600px',
+          'height': '400px'
+        }
       }
     ],
     'styles': {}

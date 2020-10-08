@@ -26,60 +26,71 @@ import {
   AjfColumnWidgetInstance, AjfFormulaWidgetInstance, AjfChartWidgetInstance,
   AjfTableWidgetInstance
 } from '@ajf/core/reports';
-import { AjfImageType } from '@ajf/core/image';
+import {AjfImageType} from '@ajf/core/image';
 
-import { ImageMap, loadReportImages } from './load-report-images';
+import {ImageMap, loadReportImages} from './load-report-images';
 
 import * as pdfMake from 'pdfmake/build/pdfmake';
-import { vfs_fonts } from './vfs_fonts';
-(pdfMake as any).vfs = vfs_fonts;
+import {vfsFonts} from './vfs-fonts';
+(pdfMake as any).vfs = vfsFonts;
 
-export function openReportPdf(report: AjfReportInstance) {
-  createReportPdf(report).then(pdf => {
-    pdf.open()
+export function openReportPdf(report: AjfReportInstance, orientation?: pdfMake.PageOrientation) {
+  createReportPdf(report, orientation).then(pdf => {
+    pdf.open();
   });
 }
 
-export function createReportPdf(report: AjfReportInstance): Promise<pdfMake.TCreatedPdf> {
+export function createReportPdf(report: AjfReportInstance, orientation?: pdfMake.PageOrientation):
+  Promise<pdfMake.TCreatedPdf> {
+
   return new Promise<pdfMake.TCreatedPdf>(resolve => {
     loadReportImages(report).then(images => {
-      const pdfDef = reportToPdf(report, images);
+      let width = 595.28 - 40 * 2; // A4 page width - margins
+      if (orientation === 'landscape') {
+        width = 841.89 - 40 * 2;
+      }
+      const pdfDef = reportToPdf(report, images, width);
+      pdfDef.pageOrientation = orientation;
       resolve(pdfMake.createPdf(pdfDef));
     });
   });
 }
 
-function reportToPdf(report: AjfReportInstance, images: ImageMap): pdfMake.TDocumentDefinitions {
+function reportToPdf(report: AjfReportInstance, images: ImageMap, width: number):
+  pdfMake.TDocumentDefinitions {
+
   return {
-    header: report.header ? () => containerToPdf(report.header!, images) : undefined,
-    content: report.content ? containerToPdf(report.content, images) : '',
-    footer: report.footer ? () => containerToPdf(report.footer!, images) : undefined,
+    header: report.header ? () => containerToPdf(report.header!, images, width) : undefined,
+    content: report.content ? containerToPdf(report.content, images, width) : '',
+    footer: report.footer ? () => containerToPdf(report.footer!, images, width) : undefined,
   };
 }
 
-function containerToPdf(container: AjfReportContainerInstance, images: ImageMap): pdfMake.Content {
-  return { stack: container.content.map(w => widgetToPdf(w, images)) };
+function containerToPdf(container: AjfReportContainerInstance, images: ImageMap, width: number):
+  pdfMake.Content {
+
+  return { stack: container.content.map(w => widgetToPdf(w, images, width)) };
 }
 
-function widgetToPdf(widget: AjfWidgetInstance, images: ImageMap): pdfMake.Content {
+const marginBetweenWidgets = 10;
+
+function widgetToPdf(widget: AjfWidgetInstance, images: ImageMap, width: number): pdfMake.Content {
   switch (widget.widget.widgetType) {
   case AjfWidgetType.Layout:
-    const lw = widget as AjfLayoutWidgetInstance;
-    return { columns: lw.content.map(w => widgetToPdf(w, images)) };
+    return layoutToPdf(widget as AjfLayoutWidgetInstance, images, width);
   case AjfWidgetType.PageBreak:
     return { pageBreak: 'after' };
   case AjfWidgetType.Image:
-    return imageToPdf(widget as AjfImageWidgetInstance, images);
+    return imageToPdf(widget as AjfImageWidgetInstance, images, width);
   case AjfWidgetType.Text:
-    const tw = widget as AjfTextWidgetInstance;
-    return { text: tw.htmlText };
+    return textToPdf(widget as AjfTextWidgetInstance);
   case AjfWidgetType.Chart:
     const chart = widget as AjfChartWidgetInstance;
     const dataUrl = chart.canvasDataUrl == null ? '' : chart.canvasDataUrl();
     if (dataUrl === '') {
       return { text: '[chart with no attached canvas]' };
     }
-    return { image: dataUrl };
+    return { image: dataUrl, width, margin: [0, 0, 0, marginBetweenWidgets] };
   case AjfWidgetType.Table:
     const table = widget as AjfTableWidgetInstance;
     if (table.data == null || table.data.length === 0) {
@@ -90,29 +101,69 @@ function widgetToPdf(widget: AjfWidgetInstance, images: ImageMap): pdfMake.Conte
       colSpan: cell.colspan,
       rowSpan: cell.rowspan,
     })));
-    return { table: {
-      headerRows: 0,
-      widths: Array(table.data[0].length).fill('*'),
-      body,
-    }};
+    return { table: { headerRows: 0, body }, margin: [0, 0, 0, marginBetweenWidgets] };
   case AjfWidgetType.Column:
     const cw = widget as AjfColumnWidgetInstance;
-    return { stack: cw.content.map(w => widgetToPdf(w, images)), width: '100%' };
+    return { stack: cw.content.map(w => widgetToPdf(w, images, width)) };
   case AjfWidgetType.Formula:
     const fw = widget as AjfFormulaWidgetInstance;
-    return { text: fw.formula };
+    return { text: fw.formula, margin: [0, 0, 0, marginBetweenWidgets] };
   default:
     return { text: '' };
   }
 }
 
-function imageToPdf(image: AjfImageWidgetInstance, images: ImageMap): pdfMake.Content {
+function layoutToPdf(lw: AjfLayoutWidgetInstance, images: ImageMap, width: number):
+  pdfMake.Content {
+
+  const columns = [...lw.widget.columns];
+  while (columns.length < lw.content.length) {
+    columns.push(1);
+  }
+  const childWidth = width / (columns.length || 1);
+  const children = [];
+  for (let i = 0; i < lw.content.length; i++) {
+    let child = widgetToPdf(lw.content[i], images, childWidth);
+    // Children of Layout widgets are supposed to be Columns. If they aren't,
+    // we must wrap them to avoid problems like images having an 'auto' width.
+    if (child.stack == null) {
+      child = { stack: [child] };
+    }
+    child.width = columns[i] === -1 ? 'auto' : '*';
+    children.push(child);
+  }
+  return { columns: children };
+}
+
+function imageToPdf(image: AjfImageWidgetInstance, images: ImageMap, width: number):
+  pdfMake.Content {
+
   if (image.widget.imageType !== AjfImageType.Image) {
-    return { text: '' } // flags and icons still unsupported
+    // Can't get icons to work, pdfs with multiple fonts don't seem to be working
+    return { text: '' };
   }
   const dataUrl = images[image.url];
   if (dataUrl == null) {
-    return {text: '[no data for image url: ' + image.url + ']'};
+    return { text: `[no data for image url: ${image.url}]` };
   }
-  return { image: dataUrl, width: 200 };
+  return { image: dataUrl, width, margin: [0, 0, 0, marginBetweenWidgets] };
+}
+
+function textToPdf(tw: AjfTextWidgetInstance): pdfMake.Content {
+    const text: pdfMake.Content = {
+      text: stripHTML(tw.htmlText),
+      margin: [0, 0, 0, marginBetweenWidgets],
+    };
+    if (tw.htmlText.startsWith('<h1>')) {
+      text.fontSize = 20;
+      text.margin = [0, 10, 0, marginBetweenWidgets];
+    } else if (tw.htmlText.startsWith('<h2>')) {
+      text.fontSize = 15;
+      text.margin = [0, 5, 0, marginBetweenWidgets];
+    }
+    return text;
+}
+
+function stripHTML(s: string): string {
+  return s.replace(/<\/?[^>]+(>|$)/g, '');
 }

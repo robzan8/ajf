@@ -67,8 +67,8 @@ declare module "pdfmake/build/pdfmake" {
   }
 
   enum PageOrientation {
-      PORTRAIT = "PORTRAIT",
-      LANDSCAPE = "LANDSCAPE"
+      PORTRAIT = "portrait",
+      LANDSCAPE = "landscape"
   }
 
   let pdfMake: pdfMakeStatic;
@@ -154,7 +154,7 @@ declare module "pdfmake/build/pdfmake" {
       widths?: Array<string | number>;
   }
 
-  type Content = string | ContentInterface;
+  type Content = ContentInterface;
 
   interface ContentInterface {
       style?: string | string[];
