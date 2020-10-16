@@ -13,6 +13,11 @@ ts_library(
     deps = ["@npm//@angular/core"],
 )
 
+ts_library(
+    name = "pdfmake-typings",
+    srcs = [":pdfmake-typings.d.ts"],
+)
+
 # Creates the @angular/cdk package published to npm.
 ng_package(
     name = "npm_package",
