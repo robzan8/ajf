@@ -27,7 +27,7 @@
     "esprima": "0.0.0-ESPRIMA",
     "leaflet": "0.0.0-LEAFLET",
     "numeral": "0.0.0-NUMERAL",
-    "pdfmake": "^0.1.58"
+    "pdfmake": "0.0.0-PDFMAKE"
   },
   "dependencies": {
     "tslib": "0.0.0-TSLIB"
