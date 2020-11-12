@@ -30,12 +30,15 @@ import {AjfImageType} from '@ajf/core/image';
 
 import {ImageMap, loadReportImages} from './load-report-images';
 
-import {createPdf, TCreatedPdf} from 'pdfmake/build/pdfmake';
+import * as pm from 'pdfmake/build/pdfmake';
+import {vfsFonts} from './vfs-fonts';
+(pm as any).vfs = vfsFonts;
 import {
   Column,
   Content,
   ContentStack,
   PageOrientation,
+  TableCell,
   TDocumentDefinitions
 } from 'pdfmake/interfaces';
 
@@ -46,17 +49,18 @@ export function openReportPdf(report: AjfReportInstance, orientation?: PageOrien
 }
 
 export function createReportPdf(report: AjfReportInstance, orientation?: PageOrientation):
-  Promise<TCreatedPdf> {
+  Promise<pm.TCreatedPdf> {
 
-  return new Promise<TCreatedPdf>(resolve => {
+  return new Promise<pm.TCreatedPdf>(resolve => {
     loadReportImages(report).then(images => {
+      console.log(images);
       let width = 595.28 - 40 * 2; // A4 page width - margins
       if (orientation === 'landscape') {
         width = 841.89 - 40 * 2;
       }
       const pdfDef = reportToPdf(report, images, width);
       pdfDef.pageOrientation = orientation;
-      resolve(createPdf(pdfDef));
+      resolve(pm.createPdf(pdfDef));
     });
   });
 }
@@ -64,11 +68,17 @@ export function createReportPdf(report: AjfReportInstance, orientation?: PageOri
 function reportToPdf(report: AjfReportInstance, images: ImageMap, width: number):
   TDocumentDefinitions {
 
-  return {
-    header: report.header ? () => containerToPdf(report.header!, images, width) : undefined,
-    content: report.content ? containerToPdf(report.content, images, width) : '',
-    footer: report.footer ? () => containerToPdf(report.footer!, images, width) : undefined,
-  };
+  const stack: Content[] = [];
+  if (report.header != null) {
+    stack.push(containerToPdf(report.header, images, width));
+  }
+  if (report.content != null) {
+    stack.push(containerToPdf(report.content, images, width));
+  }
+  if (report.footer != null) {
+    stack.push(containerToPdf(report.footer, images, width));
+  }
+  return { content: { stack } };
 }
 
 function containerToPdf(container: AjfReportContainerInstance, images: ImageMap, width: number):
@@ -97,16 +107,7 @@ function widgetToPdf(widget: AjfWidgetInstance, images: ImageMap, width: number)
     }
     return { image: dataUrl, width, margin: [0, 0, 0, marginBetweenWidgets] };
   case AjfWidgetType.Table:
-    const table = widget as AjfTableWidgetInstance;
-    if (table.data == null || table.data.length === 0) {
-      return { text: '' };
-    }
-    const body = table.data.map((row, i) => row.map((cell, j) => ({
-      text: table.dataset[i][j],
-      colSpan: cell.colspan,
-      rowSpan: cell.rowspan,
-    })));
-    return { table: { headerRows: 0, body }, margin: [0, 0, 0, marginBetweenWidgets] };
+    return tableToPdf(widget as AjfTableWidgetInstance);
   case AjfWidgetType.Column:
     const cw = widget as AjfColumnWidgetInstance;
     return { stack: cw.content.map(w => widgetToPdf(w, images, width)) };
@@ -145,24 +146,45 @@ function imageToPdf(image: AjfImageWidgetInstance, images: ImageMap, width: numb
   }
   const dataUrl = images[image.url];
   if (dataUrl == null) {
-    return { text: `[no data for image url: ${image.url}]` };
+    return { text: '' };
   }
   return { image: dataUrl, width, margin: [0, 0, 0, marginBetweenWidgets] };
 }
 
 function textToPdf(tw: AjfTextWidgetInstance): Content {
-    const text: Content = {
-      text: stripHTML(tw.htmlText),
-      margin: [0, 0, 0, marginBetweenWidgets],
-    };
-    if (tw.htmlText.startsWith('<h1>')) {
-      text.fontSize = 20;
-      text.margin = [0, 10, 0, marginBetweenWidgets];
-    } else if (tw.htmlText.startsWith('<h2>')) {
-      text.fontSize = 15;
-      text.margin = [0, 5, 0, marginBetweenWidgets];
+  const text: Content = {
+    text: stripHTML(tw.htmlText),
+    margin: [0, 0, 0, marginBetweenWidgets],
+  };
+  if (tw.htmlText.startsWith('<h1>')) {
+    text.fontSize = 20;
+    text.margin = [0, 10, 0, marginBetweenWidgets];
+  } else if (tw.htmlText.startsWith('<h2>')) {
+    text.fontSize = 15;
+    text.margin = [0, 5, 0, marginBetweenWidgets];
+  }
+  return text;
+}
+
+function tableToPdf(table: AjfTableWidgetInstance): Content {
+  if (table.data == null || table.data.length === 0) {
+    return { text: '' };
+  }
+  const body: TableCell[][] = [];
+  for (let i = 0; i < table.data.length; i++) {
+    const dataRow = table.data[i];
+    const bodyRow: TableCell[] = [];
+    for (let j = 0; j < dataRow.length; j++) {
+      const cell = dataRow[j];
+      bodyRow.push({ text: table.dataset[i][j], colSpan: cell.colspan });
+      // pdfmake wants placeholder cells after cells with colspan > 1:
+      for (let k = 1; k < (cell.colspan || 1); k++) {
+        bodyRow.push({ text: '' });
+      }
     }
-    return text;
+    body.push(bodyRow);
+  }
+  return { table: { headerRows: 0, body }, margin: [0, 0, 0, marginBetweenWidgets] };
 }
 
 function stripHTML(s: string): string {

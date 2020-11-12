@@ -83,7 +83,7 @@ THIRD_PARTY_GEN_BUNDLES = [
     ("esprima", "esprima-bundle.js"),
     ("leaflet", "leaflet-bundle.js"),
     ("numbro", "numbro-bundle.js"),
-    ("pdfmake", "pdfmake-bundle.js"),
+    ("pdfmake/build/pdfmake", "pdfmake-bundle.js"),
     ("quill", "quill-bundle.js"),
 ]
 

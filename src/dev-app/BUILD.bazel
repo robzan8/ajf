@@ -88,7 +88,6 @@ filegroup(
         "@npm//:node_modules/flag-icon-css/css/flag-icon.min.css",
         "@npm//:node_modules/flag-icon-css/flags/4x3/bf.svg",
         "@npm//:node_modules/leaflet/dist/leaflet.css",
-        "@npm//:node_modules/pdfmake/build/pdfmake.js",
         "@npm//:node_modules/rxjs/bundles/rxjs.umd.min.js",
         "@npm//:node_modules/systemjs/dist/system.js",
         "@npm//:node_modules/tslib/tslib.js",

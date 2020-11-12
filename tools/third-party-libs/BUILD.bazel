@@ -115,7 +115,8 @@ third_party_bundle(
 third_party_bundle(
     name = "pdfmake",
     entry_point = "@npm//:node_modules/pdfmake/build/pdfmake.js",
-    module_name = "pdfmake",
+    module_name = "pdfmake/build/pdfmake",
+    exports = "default",
     deps = [
         "@npm//pdfmake",
     ],

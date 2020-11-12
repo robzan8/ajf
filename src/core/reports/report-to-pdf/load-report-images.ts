@@ -49,11 +49,11 @@ export function loadReportImages(report: AjfReportInstance): Promise<ImageMap> {
   }
   return new Promise<ImageMap>(resolve => {
     Promise.all(promises).then(maps => {
-      let result: ImageMap = {};
+      let map: ImageMap = {};
       for (const m of maps) {
-        result = {...result, ...m};
+        map = {...map, ...m};
       }
-      resolve(result);
+      resolve(map);
     });
   });
 }
@@ -66,11 +66,11 @@ function loadContainerImages(container: AjfReportContainerInstance|AjfWidgetWith
   }
   return new Promise<ImageMap>(resolve => {
     Promise.all(promises).then(maps => {
-      let result: ImageMap = {};
+      let map: ImageMap = {};
       for (const m of maps) {
-        result = {...result, ...m};
+        map = {...map, ...m};
       }
-      resolve(result);
+      resolve(map);
     });
   });
 }
@@ -92,9 +92,14 @@ function loadWidgetImages(widget: AjfWidgetInstance): Promise<ImageMap> {
         const r = new FileReader();
         r.onerror = () => resolve({});
         r.onloadend = () => {
-          const result: ImageMap = {};
-          result[image.url] = r.result as string;
-          resolve(result);
+          const result = r.result as string;
+          if (result.startsWith('data:image')) {
+            const map: ImageMap = {};
+            map[image.url] = result;
+            resolve(map);
+          } else {
+            resolve({});
+          }
         };
         r.readAsDataURL(req.response);
       };
