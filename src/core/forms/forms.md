@@ -103,11 +103,11 @@ For the previous example, a context might be the object `{ pet_name: "Bobby", pe
 The following node types are available:
 
 <ol start="0">
-	<li>AjfField: a form field</li>
-	<li>AjfFieldNodeLink: TODO: what is this?</li>
-	<li>AjfNodeGroup: a [group of nodes](#node-groups)</li>
-	<li>AjfSlide: a slide</li>
-	<li>AjfRepeatingSlide: a [slide which can be repeated](#repeating-slides)</li>
+	<li><code>AjfField</code>: a form field</li>
+	<li><code>AjfFieldNodeLink</code>: TODO: what is this?</li>
+	<li><code>AjfNodeGroup</code>: a <a href="#node-groups">group of nodes</a></li>
+	<li><code>AjfSlide</code>: a slide</li>
+	<li><code>AjfRepeatingSlide</code>: a <a href="#repeating-slides">slide which can be repeated</a></li>
 </ol>
 
 ## Field Types
