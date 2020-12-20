@@ -102,13 +102,13 @@ For the previous example, a context might be the object `{ pet_name: "Bobby", pe
 
 The following node types are available:
 
-	enum AjfNodeType {
-		AjfField,          // 0, a form field
-		AjfFieldNodeLink,  // 1, TODO: what is this?
-		AjfNodeGroup,      // 2, a [group of nodes](#node-groups)
-		AjfSlide,          // 3, a slide
-		AjfRepeatingSlide, // 4, a [slide which can be repeated](#repeating-slides)
-	}
+<ol start="0">
+	<li>AjfField: a form field</li>
+	<li>AjfFieldNodeLink: TODO: what is this?</li>
+	<li>AjfNodeGroup: a [group of nodes](#node-groups)</li>
+	<li>AjfSlide: a slide</li>
+	<li>AjfRepeatingSlide: a [slide which can be repeated](#repeating-slides)</li>
+</ol>
 
 ## Field Types
 
