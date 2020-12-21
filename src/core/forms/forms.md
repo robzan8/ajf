@@ -102,37 +102,37 @@ For the previous example, a context might be the object `{ pet_name: "Bobby", pe
 
 The following node types are available:
 
-<ol start="0">
-	<li><code>AjfField</code>: a form field</li>
-	<li><code>AjfFieldNodeLink</code>: TODO: what is this?</li>
-	<li><code>AjfNodeGroup</code>: a <a href="#node-groups">group of nodes</a></li>
-	<li><code>AjfSlide</code>: a slide</li>
-	<li><code>AjfRepeatingSlide</code>: a <a href="#repeating-slides">slide which can be repeated</a></li>
-</ol>
+| type | name              | description  |
+|------|-------------------|--------------|
+|    0 | AjfField          | a form field |
+|    1 | AjfFieldNodeLink  | TODO: what is this? |
+|    2 | AjfNodeGroup      | a [group of nodes](#node-groups) |
+|    3 | AjfSlide          | a slide      |
+|    4 | AjfRepeatingSlide | a [slide which can be repeated](#repeating-slides) |
 
 ## Field Types
 
 The following field types are available:
 
-	enum AjfFieldType {
-		String,         //  0, a text input
-		Text,           //  1, a text area
-		Number,         //  2, a 64-bit floating-point number
-		Boolean,        //  3, a checkbox, stored as boolean
-		SingleChoice,   //  4, a [single-choice question](#choice-questions)
-		MultipleChoice, //  5, a [multiple-choice question](#choice-questions)
-		Formula,        //  6, a [formula](#formulas)
-		Empty,          //  7, inserts an [HTML note](#html-notes) in the form
-		Date,           //  8, just use DateInput (9) instead
-		DateInput,      //  9, a calendar to select a date
-		Time,           // 10, a time in 23:59 format
-		Table,          // 11, a [table](#tables)
-		Geolocation,    // 12, a GPS point
-		Barcode,        // 13, allows scanning a barcode
-		File,           // 14, allows uploading a file
-		Image,          // 15, allows uploading an image
-		VideoUrl,       // 16, the url of a video
-	}
+| type | name           | description  |
+|------|----------------|--------------|
+|    0 | String         | a text input |
+|    1 | Text           | a text area  |
+|    2 | Number         | a 64-bit floating-point number |
+|    3 | Boolean        | a checkbox, stored as boolean |
+|    4 | SingleChoice   | a [single-choice question](#choice-questions) |
+|    5 | MultipleChoice | a [multiple-choice question](#choice-questions) |
+|    6 | Formula        | a [formula](#formulas) |
+|    7 | Empty          | inserts an [HTML note](#html-notes) in the form |
+|    8 | Date           | just use DateInput (9) instead |
+|    9 | DateInput      | a calendar to select a date |
+|   10 | Time           | a time in 23:59 format |
+|   11 | Table          | a [table](#tables) |
+|   12 | Geolocation    | a GPS point  |
+|   13 | Barcode        | allows scanning a barcode |
+|   14 | File           | allows uploading a file |
+|   15 | Image          | allows uploading an image |
+|   16 | VideoUrl       | the url of a video |
 
 ## Choice Questions
 
