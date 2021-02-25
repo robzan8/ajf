@@ -106,7 +106,7 @@
     "@octokit/rest": "16.28.7",
     "@rollup/plugin-commonjs": "^13.0.0",
     "@rollup/plugin-node-resolve": "^8.1.0",
-    "@schematics/angular": "^11.0.0",
+    "@schematics/angular": "^11.2.2",
     "@types/autoprefixer": "^9.7.2",
     "@types/browser-sync": "^2.26.1",
     "@types/chart.js": "^2.9.22",
