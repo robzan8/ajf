@@ -18,10 +18,10 @@
     typescript "4.0.5"
     webpack-sources "2.0.1"
 
-"@angular-devkit/core@11.0.2", "@angular-devkit/core@^11.0.0":
-  version "11.0.2"
-  resolved "https://registry.yarnpkg.com/@angular-devkit/core/-/core-11.0.2.tgz#dd3475912e830740e71e14e3168d609e8ddef8c6"
-  integrity sha512-vUmmUNmNM9oRcDmt0PunU/ayglo0apq4pGL9Z5jj6alf2WwEiTcGHjyuZSDIO9MOLi41519jp3mDx79qXvvyww==
+"@angular-devkit/core@11.2.4", "@angular-devkit/core@^11.0.0":
+  version "11.2.4"
+  resolved "https://registry.yarnpkg.com/@angular-devkit/core/-/core-11.2.4.tgz#4404b86d8dbdb41a0e3f94cb08ff8604e0c49a2e"
+  integrity sha512-98mGDV4XtKWiQ/2D6yzvOHrnJovXchaAN9AjscAHd2an8Fkiq72d9m2wREpk+2J40NWTDB6J5iesTh3qbi8+CA==
   dependencies:
     ajv "6.12.6"
     fast-json-stable-stringify "2.1.0"
@@ -29,13 +29,13 @@
     rxjs "6.6.3"
     source-map "0.7.3"
 
-"@angular-devkit/schematics@11.0.2", "@angular-devkit/schematics@^11.0.0":
-  version "11.0.2"
-  resolved "https://registry.yarnpkg.com/@angular-devkit/schematics/-/schematics-11.0.2.tgz#b5aa914d7e91d92b4eeadb7aed3b5228497abbf3"
-  integrity sha512-unNewc+Y9ofrdKxXNoSHKUL6wvV8Vgh2nJMTLI1VAw8nfqgWphI+s5XwbVzog65nhZ10xJeaUm9u5R8pxLDpQg==
+"@angular-devkit/schematics@11.2.4", "@angular-devkit/schematics@^11.0.0":
+  version "11.2.4"
+  resolved "https://registry.yarnpkg.com/@angular-devkit/schematics/-/schematics-11.2.4.tgz#ba67ee835ceb210777f1feece86195f28c1b2e96"
+  integrity sha512-M9Ike1TYawOIHzenlZS1ufQbsS+Z11/doj5w/UrU0q2OEKc6U375t5qVGgKo3PLHHS8osb9aW9xYwBfVlKrryQ==
   dependencies:
-    "@angular-devkit/core" "11.0.2"
-    ora "5.1.0"
+    "@angular-devkit/core" "11.2.4"
+    ora "5.3.0"
     rxjs "6.6.3"
 
 "@angular/animations@^11.0.0":
@@ -900,14 +900,14 @@
     colors "~1.2.1"
     string-argv "~0.3.1"
 
-"@schematics/angular@^11.0.0":
-  version "11.0.2"
-  resolved "https://registry.yarnpkg.com/@schematics/angular/-/angular-11.0.2.tgz#63041d1931fe2d56135d730a6e43937a3eef4bab"
-  integrity sha512-tUIuCYJUzHYuiXGJ2KCuwxMocS56kPHaM8+neVYWwWbOxKzLZXv80gMm/pIWxrqUDCkIUi3yb4ienudFhgQLYg==
+"@schematics/angular@^11.2.4":
+  version "11.2.4"
+  resolved "https://registry.yarnpkg.com/@schematics/angular/-/angular-11.2.4.tgz#408a2e5ae1daeba5e51e7f57d7af9369ee61ca89"
+  integrity sha512-HKWpcmfJfx5fryDdVGN1s+AmzOCKViQQGrEZmDTC2PhA6Vg+SOeMKesyFvdOqf4Ld1ZNYw9Kg94wrpz6rycP/Q==
   dependencies:
-    "@angular-devkit/core" "11.0.2"
-    "@angular-devkit/schematics" "11.0.2"
-    jsonc-parser "2.3.1"
+    "@angular-devkit/core" "11.2.4"
+    "@angular-devkit/schematics" "11.2.4"
+    jsonc-parser "3.0.0"
 
 "@sindresorhus/is@^0.14.0":
   version "0.14.0"
@@ -2941,7 +2941,7 @@ cli-progress@^3.7.0:
     colors "^1.1.2"
     string-width "^4.2.0"
 
-cli-spinners@^2.0.0, cli-spinners@^2.4.0:
+cli-spinners@^2.0.0, cli-spinners@^2.4.0, cli-spinners@^2.5.0:
   version "2.5.0"
   resolved "https://registry.yarnpkg.com/cli-spinners/-/cli-spinners-2.5.0.tgz#12763e47251bf951cb75c201dfa58ff1bcb2d047"
   integrity sha512-PC+AmIuK04E6aeSs/pUccSujsTzBhu4HzC2dL+CfJB/Jcc2qTRbEwZQDfIUpt2Xl8BodYBEq8w4fc0kU2I9DjQ==
@@ -7421,10 +7421,10 @@ json5@^2.1.2:
   dependencies:
     minimist "^1.2.5"
 
-jsonc-parser@2.3.1:
-  version "2.3.1"
-  resolved "https://registry.yarnpkg.com/jsonc-parser/-/jsonc-parser-2.3.1.tgz#59549150b133f2efacca48fe9ce1ec0659af2342"
-  integrity sha512-H8jvkz1O50L3dMZCsLqiuB2tA7muqbSg1AtGEkN0leAqGjsUzDJir3Zwr02BhqdcITPg3ei3mZ+HjMocAknhhg==
+jsonc-parser@3.0.0:
+  version "3.0.0"
+  resolved "https://registry.yarnpkg.com/jsonc-parser/-/jsonc-parser-3.0.0.tgz#abdd785701c7e7eaca8a9ec8cf070ca51a745a22"
+  integrity sha512-fQzRfAbIBnR0IQvftw9FJveWiHp72Fg20giDrHz6TdfB12UH/uue0D3hm57UB5KgAVuniLMCaS8P1IMj9NR7cA==
 
 jsonfile@^2.1.0:
   version "2.4.0"
@@ -9302,17 +9302,17 @@ optionator@^0.8.1:
     type-check "~0.3.2"
     word-wrap "~1.2.3"
 
-ora@5.1.0, ora@^5.0.0, ora@^5.1.0:
-  version "5.1.0"
-  resolved "https://registry.yarnpkg.com/ora/-/ora-5.1.0.tgz#b188cf8cd2d4d9b13fd25383bc3e5cba352c94f8"
-  integrity sha512-9tXIMPvjZ7hPTbk8DFq1f7Kow/HU/pQYB60JbNq+QnGwcyhWVZaQ4hM9zQDEsPxw/muLpgiHSaumUZxCAmod/w==
+ora@5.3.0:
+  version "5.3.0"
+  resolved "https://registry.yarnpkg.com/ora/-/ora-5.3.0.tgz#fb832899d3a1372fe71c8b2c534bbfe74961bb6f"
+  integrity sha512-zAKMgGXUim0Jyd6CXK9lraBnD3H5yPGBPPOkC23a2BG6hsm4Zu6OQSjQuEtV0BHDf4aKHcUFvJiGRrFuW3MG8g==
   dependencies:
+    bl "^4.0.3"
     chalk "^4.1.0"
     cli-cursor "^3.1.0"
-    cli-spinners "^2.4.0"
+    cli-spinners "^2.5.0"
     is-interactive "^1.0.0"
     log-symbols "^4.0.0"
-    mute-stream "0.0.8"
     strip-ansi "^6.0.0"
     wcwidth "^1.0.1"
 
@@ -9326,6 +9326,20 @@ ora@^3.4.0:
     cli-spinners "^2.0.0"
     log-symbols "^2.2.0"
     strip-ansi "^5.2.0"
+    wcwidth "^1.0.1"
+
+ora@^5.0.0, ora@^5.1.0:
+  version "5.1.0"
+  resolved "https://registry.yarnpkg.com/ora/-/ora-5.1.0.tgz#b188cf8cd2d4d9b13fd25383bc3e5cba352c94f8"
+  integrity sha512-9tXIMPvjZ7hPTbk8DFq1f7Kow/HU/pQYB60JbNq+QnGwcyhWVZaQ4hM9zQDEsPxw/muLpgiHSaumUZxCAmod/w==
+  dependencies:
+    chalk "^4.1.0"
+    cli-cursor "^3.1.0"
+    cli-spinners "^2.4.0"
+    is-interactive "^1.0.0"
+    log-symbols "^4.0.0"
+    mute-stream "0.0.8"
+    strip-ansi "^6.0.0"
     wcwidth "^1.0.1"
 
 orchestrator@^0.3.0:
