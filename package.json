@@ -110,7 +110,7 @@
     "@octokit/rest": "18.3.5",
     "@rollup/plugin-commonjs": "^21.0.0",
     "@rollup/plugin-node-resolve": "^13.0.5",
-    "@schematics/angular": "13.0.0-rc.3",
+    "@schematics/angular": "13.0.1",
     "@types/babel__core": "^7.1.16",
     "@types/browser-sync": "^2.26.1",
     "@types/chart.js": "^2.9.22",
