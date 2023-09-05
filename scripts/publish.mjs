@@ -9,19 +9,22 @@ import {packages} from './build-config.mjs';
 
 const publish = async () => {
   const npmToken = process.env.NPM_TOKEN;
-  if (npmToken == null || npmToken.length === 0) {
+  /*if (npmToken == null || npmToken.length === 0) {
     shell.echo(`Error: No access token for Npm could be found. Please set the environment variable 'NPM_TOKEN'.`);
     shell.exit(1);
-  }
+  }*/
   const nmpRc = `//registry.npmjs.org/:_authToken=${npmToken}`;
-  const curTag = shell.exec(`/usr/bin/git describe --abbrev=0 --tags --exact-match 2> /dev/null`, {silent: true}).stdout;
+  const e = shell.exec(`/usr/bin/git describe --abbrev=0 --tags --exact-match`, {silent: true});
+  const curTag = e.stdout;
   if (curTag == null || curTag.length === 0) {
     shell.echo('No version tag defined');
+    shell.echo(e.stderr);
     shell.exit(0);
   }
   const tagVersion = semver.valid(semver.clean(curTag));
   if (tagVersion == null) {
     shell.echo('Invalid version tag defined');
+    shell.echo(curTag);
     shell.exit(0);
   }
   for (const pkg of packages) {
