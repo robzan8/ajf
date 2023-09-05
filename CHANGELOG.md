@@ -1,3 +1,16 @@
+<a name="15.3.2"></a>
+# 15.3.2 "political-bison" (2023-09-05)
+### Bug Fixes
+* **core/barcode:** Fixed a bug caused by a missing undefined check on the barcode video element when resetting or stopping streams. ([111c647](https://github.com/gnucoop/ajf/commit/111c6476916c3ba420fe8e9756dd71d9186fe26c))
+* **core/forms:** remove orientation changer in page slider ([1251ab6](https://github.com/gnucoop/ajf/commit/1251ab6ad79d6c5089d50cf3507ac4c4932745ce))
+* **core/reports:** Add css for single indicator widget ([886ce13](https://github.com/gnucoop/ajf/commit/886ce13b9c83546669959f0a1d5aabad23259d7f))
+* **material/forms:** fix bug with form builder icons ([6e3f24b](https://github.com/gnucoop/ajf/commit/6e3f24b8bb62ec64c762945c37e447e93978be2f))
+* **material/forms:** fix page slider wheel event ([2ff6e00](https://github.com/gnucoop/ajf/commit/2ff6e00e389cb565b664a67c92a75dd52d3a608b))
+### Features
+* **material/forms:** replace ajf-icons with material icons ([105ad5d](https://github.com/gnucoop/ajf/commit/105ad5d3905742909bfc2a58b4889b9bbc7b7aa0))
+
+<!-- CHANGELOG SPLIT MARKER -->
+
 <a name="15.3.1"></a>
 # 15.3.1 "mathematical-shrew" (2023-09-05)
 
