@@ -20,16 +20,15 @@
  *
  */
 
-import {ExtendedChartType} from '@ajf/core/chart';
-import {ChartData, ChartDataSets} from 'chart.js';
+import {ChartData, ChartDataset, ChartType} from 'chart.js';
 
 import {AjfChartWidget} from '../widgets/chart-widget';
 import {AjfDataWidgetInstance} from './data-widget-instance';
 
 export interface AjfChartWidgetInstance extends AjfDataWidgetInstance {
   widget: AjfChartWidget;
-  datasets: ChartDataSets[];
-  chartType: ExtendedChartType;
+  datasets: ChartDataset[];
+  chartType: ChartType;
   exportable: boolean;
   data: ChartData;
   labels: string[];

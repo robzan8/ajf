@@ -22,12 +22,12 @@
 
 import {AjfFormula} from '@ajf/core/models';
 import {AjfChartType} from '../charts/chart-type';
-import {AjfChartDatasetOptions} from './chart-dataset-options';
 import {AjfDataset} from './dataset';
+import {DatasetChartOptions} from 'chart.js';
 
 export interface AjfChartDataset extends AjfDataset {
   formula: AjfFormula[];
   chartType?: AjfChartType;
-  options?: AjfChartDatasetOptions;
+  options?: DatasetChartOptions;
   datalabels?: any;
 }

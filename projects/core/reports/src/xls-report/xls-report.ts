@@ -271,7 +271,7 @@ function _buildChart(name: string, sheet: {[key: string]: string}[]): AjfWidget 
     const multipleColors = type === AjfChartType.Pie ||
       type === AjfChartType.PolarArea || type === AjfChartType.Doughnut;
     const color = multipleColors ? backgroundColor : backgroundColor[index];
-    const datasetOptions: any = {backgroundColor: color, tension: 0};
+    const datasetOptions: any = {/*backgroundColor: color, */tension: 0};
     if (type === AjfChartType.Line && !stacked) {
       datasetOptions.backgroundColor = 'transparent';
       datasetOptions.borderColor = color;
@@ -287,7 +287,7 @@ function _buildChart(name: string, sheet: {[key: string]: string}[]): AjfWidget 
     } as AjfChartDataset);
   });
 
-  const scales: Chart.ChartScales = {};
+  const scales: any = {};
   if (stacked || beginAtZeroX) {
     scales.xAxes = [{stacked, ticks: beginAtZeroX ? {beginAtZero: true} : undefined}];
   }
@@ -303,12 +303,12 @@ function _buildChart(name: string, sheet: {[key: string]: string}[]): AjfWidget 
     options: {
       responsive: true,
       maintainAspectRatio: true,
-      legend: {display: true, position: 'bottom'},
+      /*legend: {display: true, position: 'bottom'},
       title: {
         display: true,
         text: options['title'] || '',
       },
-      scales,
+      scales,*/
     },
     styles: {
       ...widgetStyle,

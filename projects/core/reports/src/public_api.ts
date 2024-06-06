@@ -27,7 +27,6 @@ export * from './interface/aggregation/aggregation';
 export * from './interface/aggregation/aggregation-type';
 export * from './interface/charts/chart-type';
 export * from './interface/dataset/chart-dataset';
-export * from './interface/dataset/chart-dataset-options';
 export * from './interface/dataset/dataset';
 export * from './interface/dataset/table-dataset';
 export * from './interface/reports/report';

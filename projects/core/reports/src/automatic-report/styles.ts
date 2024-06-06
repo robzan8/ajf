@@ -44,7 +44,8 @@ export const indicatorStyle: AjfStyles = {
   fontSize: '30px',
 };
 export const widgetStyle: AjfStyles = {
-  border: '1px outset gray',
+  border: '1px dotted gray',
+  borderRadius: '10px',
   marginBottom: '10px',
 };
 export const chartStyle: AjfStyles = {

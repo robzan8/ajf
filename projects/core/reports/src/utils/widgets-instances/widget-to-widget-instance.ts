@@ -139,7 +139,7 @@ export function widgetToWidgetInstance(
       widget.exportable && (widget.exportable === true || widget.exportable === 'true')
         ? true
         : false;
-    if (widget.options != null && widget.options.plugins != null) {
+    /*if (widget.options != null && widget.options.plugins != null) {
       const plugins = widget.options.plugins;
       const pluginNames = Object.keys(plugins);
       pluginNames.forEach(pluginName => {
@@ -156,7 +156,7 @@ export function widgetToWidgetInstance(
           }
         });
       });
-    }
+    }*/
   } else if (isTableWidget(widget) && isTableWidgetInstance(wi)) {
     wi.dataset = widget.dataset.map(row =>
       row.map(cell => {

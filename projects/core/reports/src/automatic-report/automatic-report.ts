@@ -66,7 +66,7 @@ function createBooleanWidget(field: AjfField): AjfWidget {
     options: {
       responsive: true,
       maintainAspectRatio: true,
-      legend: {display: true, position: 'bottom'},
+      plugins: {legend: {display: true, position: 'bottom'}},
     },
     styles: chartStyle,
     exportable: true,
@@ -84,7 +84,7 @@ function createMultipleChoiceWidget(field: AjfFieldWithChoices<any>): AjfWidget 
         }),
       ],
       options: {
-        backgroundColor: backgroundColor[index],
+        /*backgroundColor: backgroundColor[index],*/
         stack: `Stack ${index}`,
       },
     } as Partial<AjfDataset>),
@@ -100,7 +100,7 @@ function createMultipleChoiceWidget(field: AjfFieldWithChoices<any>): AjfWidget 
     options: {
       responsive: true,
       maintainAspectRatio: true,
-      legend: {display: true, position: 'bottom'},
+      plugins: {legend: {display: true, position: 'bottom'}},
     },
     styles: chartStyle,
     exportable: true,
@@ -157,7 +157,7 @@ function createSingleChoiceWidget(field: AjfFieldWithChoices<any>): AjfWidget {
               .toString()}]`,
           }),
         ],
-        options: {backgroundColor},
+        /*options: {backgroundColor},*/
       } as Partial<AjfDataset>),
     ];
   } else {
@@ -166,7 +166,7 @@ function createSingleChoiceWidget(field: AjfFieldWithChoices<any>): AjfWidget {
         label: `${c.label}`,
         formula: [createFormula({formula: `[COUNT_FORMS(dataset, f => f.${field.name} === '${c.value}')]`})],
         options: {
-          backgroundColor: backgroundColor[index],
+          /*backgroundColor: backgroundColor[index],*/
           stack: `Stack ${index}`,
         },
       } as Partial<AjfDataset>),
@@ -181,7 +181,7 @@ function createSingleChoiceWidget(field: AjfFieldWithChoices<any>): AjfWidget {
     options: {
       responsive: true,
       maintainAspectRatio: true,
-      legend: {display: true, position: 'bottom'},
+      plugins: {legend: {display: true, position: 'bottom'}},
     },
     styles: chartStyle,
     exportable: true,
@@ -204,7 +204,7 @@ function createRangeWidget(field: AjfRangeField): AjfWidget {
         createFormula({formula: `[COUNT_FORMS(dataset, f => f.${field.name} === ${index + 1 + start})]`}),
       ],
       options: {
-        backgroundColor: backgroundColor[index],
+        /*backgroundColor: backgroundColor[index],*/
         stack: `Stack ${index}`,
       },
     } as Partial<AjfDataset>),
@@ -230,7 +230,7 @@ function createRangeWidget(field: AjfRangeField): AjfWidget {
         options: {
           responsive: true,
           maintainAspectRatio: true,
-          legend: {display: true, position: 'bottom'},
+          plugins: {legend: {display: true, position: 'bottom'}},
         },
         styles: chartStyle,
         exportable: true,

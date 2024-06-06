@@ -59,7 +59,8 @@ export const boxStyle: AjfStyles = {
   height: '100%',
 };
 export const widgetStyle: AjfStyles = {
-  border: '1px outset gray',
+  border: '1px dotted gray',
+  borderRadius: '10px',
   marginBottom: '10px',
 };
 export const backgroundColor: string[] = [

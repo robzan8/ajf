@@ -20,17 +20,16 @@
  *
  */
 
-import {ExtendedChartType} from '@ajf/core/chart';
 import {AjfChartType} from './interface/charts/chart-type';
 
-export function chartToChartJsType(chartType?: AjfChartType): ExtendedChartType {
+import {ChartType} from 'chart.js';
+
+export function chartToChartJsType(chartType?: AjfChartType): ChartType {
   switch (chartType) {
     case AjfChartType.Line:
       return 'line';
     case AjfChartType.Bar:
       return 'bar';
-    case AjfChartType.HorizontalBar:
-      return 'horizontalBar';
     case AjfChartType.Radar:
       return 'radar';
     case AjfChartType.Scatter:

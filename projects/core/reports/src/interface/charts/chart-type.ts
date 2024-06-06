@@ -24,7 +24,6 @@
 export enum AjfChartType {
   Line,
   Bar,
-  HorizontalBar,
   Radar,
   Scatter,
   Doughnut,
