@@ -20,10 +20,10 @@
  *
  */
 
-import {AjfNodeType} from '../../interface/nodes/node-type';
-import {AjfNodeInstance} from '../../interface/nodes-instances/node-instance';
-import {AjfNodeGroupInstance} from '../../interface/nodes-instances/node-group-instance';
-import {AjfRepeatingSlideInstance} from '../../interface/slides-instances/repeating-slide-instance';
+import {AjfNodeType} from '../../interface/nodes';
+import {AjfNodeInstance} from '../../interface/nodes-instances';
+import {AjfNodeGroupInstance} from '../../interface/nodes-instances';
+import {AjfRepeatingSlideInstance} from '../../interface/slides-instances';
 
 /**
  * It is true if nodeInstance is a repeating group instance

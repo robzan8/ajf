@@ -21,8 +21,8 @@
  */
 
 import {Pipe, PipeTransform} from '@angular/core';
-import {AjfTableFieldInstance} from './interface/fields-instances/table-field-instance';
-import {AjfTableFormControl} from './interface/forms/table-form-control';
+import {AjfTableFieldInstance} from './interface/fields-instances';
+import {AjfTableFormControl} from './interface/forms';
 
 /**
  * It returns all visible columns of form table.

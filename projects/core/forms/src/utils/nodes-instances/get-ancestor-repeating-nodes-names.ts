@@ -20,9 +20,9 @@
  *
  */
 
-import {AjfNodeInstance} from '../../interface/nodes-instances/node-instance';
-import {AjfNode} from '../../interface/nodes/node';
-import {AjfNodeGroup} from '../../interface/nodes/node-group';
+import {AjfNodeInstance} from '../../interface/nodes-instances';
+import {AjfNode} from '../../interface/nodes';
+import {AjfNodeGroup} from '../../interface/nodes';
 import {isField} from '../nodes/is-field';
 
 import {getAncestorRepeatingNodes} from './get-ancestor-repeating-nodes';

@@ -22,7 +22,7 @@
 
 import {AjfContext, evaluateExpression} from '@ajf/core/models';
 
-import {AjfNodeInstance} from '../../interface/nodes-instances/node-instance';
+import {AjfNodeInstance} from '../../interface/nodes-instances';
 
 /**
  * It updates instance.verifiedBranch with the idx of the last branch verified.

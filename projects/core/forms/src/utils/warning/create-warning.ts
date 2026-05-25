@@ -20,7 +20,7 @@
  *
  */
 
-import {AjfWarning} from '../../interface/warning/warning';
+import {AjfWarning} from '../../interface/warning';
 
 export function createWarning(
   warning: Pick<AjfWarning, 'condition'> & Partial<AjfWarning>,

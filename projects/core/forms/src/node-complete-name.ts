@@ -21,7 +21,7 @@
  */
 
 import {Pipe, PipeTransform} from '@angular/core';
-import {AjfNodeInstance} from './interface/nodes-instances/node-instance';
+import {AjfNodeInstance} from './interface/nodes-instances';
 import {nodeInstanceCompleteName} from './utils/nodes-instances/node-instance-complete-name';
 
 /**

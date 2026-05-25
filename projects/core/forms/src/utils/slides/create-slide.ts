@@ -21,8 +21,8 @@
  */
 
 import {neverCondition} from '@ajf/core/models';
-import {AjfNodeType} from '../../interface/nodes/node-type';
-import {AjfSlide} from '../../interface/slides/slide';
+import {AjfNodeType} from '../../interface/nodes';
+import {AjfSlide} from '../../interface/slides';
 import {AjfContainerNodeCreate, createContainerNode} from '../nodes/create-container-node';
 
 export type AjfSlideCreate = AjfContainerNodeCreate;

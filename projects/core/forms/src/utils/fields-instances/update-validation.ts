@@ -22,8 +22,8 @@
 
 import {AjfContext, evaluateExpression} from '@ajf/core/models';
 
-import {AjfFieldInstance} from '../../interface/fields-instances/field-instance';
-import {AjfValidationResult} from '../../interface/validation/validation-results';
+import {AjfFieldInstance} from '../../interface/fields-instances';
+import {AjfValidationResult} from '../../interface/validation';
 import {nodeInstanceCompleteName} from '../nodes-instances/node-instance-complete-name';
 import {evaluateValidationGroup} from '../validation/evaluate-validation-group';
 /**

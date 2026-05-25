@@ -22,8 +22,8 @@
 
 import {AjfContext} from '@ajf/core/models';
 
-import {AjfWarningGroup} from '../../interface/warning/warning-group';
-import {AjfWarningResult} from '../../interface/warning/warning-result';
+import {AjfWarningGroup} from '../../interface/warning';
+import {AjfWarningResult} from '../../interface/warning';
 import {evaluateWarning} from './evaluate-warning';
 
 export function evaluateWarningConditions(

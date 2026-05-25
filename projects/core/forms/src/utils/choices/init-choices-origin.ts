@@ -23,7 +23,7 @@
 import {firstValueFrom} from 'rxjs';
 import {toArray} from 'rxjs/operators';
 
-import {AjfChoicesOrigin} from '../../interface/choices/choices-origin';
+import {AjfChoicesOrigin} from '../../interface/choices';
 /**
  * Called by form-rederer
  * take as param an AjfChoicesOrigin&lt;any&gt; and return an Promise&lt;void&gt; for handling async

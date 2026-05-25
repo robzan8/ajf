@@ -20,8 +20,8 @@
  *
  */
 
-import {AjfNodeType} from '../../interface/nodes/node-type';
-import {AjfRepeatingSlide} from '../../interface/slides/repeating-slide';
+import {AjfNodeType} from '../../interface/nodes';
+import {AjfRepeatingSlide} from '../../interface/slides';
 import {AjfContainerNodeCreate, createContainerNode} from '../nodes/create-container-node';
 import {AjfRepeatingNodeCreate, createRepeatingNode} from '../nodes/create-repeating-node';
 

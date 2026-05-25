@@ -34,15 +34,15 @@ import {
   TableRow,
 } from 'docx';
 
-import {AjfChoice} from '../interface/choices/choice';
-import {AjfEmptyField} from '../interface/fields/empty-field';
-import {AjfField} from '../interface/fields/field';
-import {AjfFieldType} from '../interface/fields/field-type';
-import {AjfTableField} from '../interface/fields/table-field';
-import {AjfForm} from '../interface/forms/form';
-import {AjfNodeType} from '../interface/nodes/node-type';
-import {AjfRepeatingSlide} from '../interface/slides/repeating-slide';
-import {AjfSlide} from '../interface/slides/slide';
+import {AjfChoice} from '../interface/choices';
+import {AjfEmptyField} from '../interface/fields';
+import {AjfField} from '../interface/fields';
+import {AjfFieldType} from '../interface/fields';
+import {AjfTableField} from '../interface/fields';
+import {AjfForm} from '../interface/forms';
+import {AjfNodeType} from '../interface/nodes';
+import {AjfRepeatingSlide} from '../interface/slides';
+import {AjfSlide} from '../interface/slides';
 import {isField} from '../utils/nodes/is-field';
 import {isRepeatingSlide} from '../utils/nodes/is-repeating-slide';
 import {isSlideNode} from '../utils/nodes/is-slide-node';

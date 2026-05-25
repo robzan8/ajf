@@ -20,8 +20,8 @@
  *
  */
 
-import {AjfNodeInstance} from '../../interface/nodes-instances/node-instance';
-import {AjfSlideInstance} from '../../interface/slides-instances/slide-instance';
+import {AjfNodeInstance} from '../../interface/nodes-instances';
+import {AjfSlideInstance} from '../../interface/slides-instances';
 import {isSlideNode} from '../nodes/is-slide-node';
 
 /**

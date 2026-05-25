@@ -20,7 +20,7 @@
  *
  */
 
-import {AjfNode} from '../../interface/nodes/node';
+import {AjfNode} from '../../interface/nodes';
 
 /**
  * It is return a new orderered nodes.

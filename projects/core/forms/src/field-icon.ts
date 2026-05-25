@@ -23,8 +23,8 @@
 import {Pipe, PipeTransform} from '@angular/core';
 
 import {fieldIconName} from './field-utils';
-import {AjfField} from './interface/fields/field';
-import {AjfFieldType} from './interface/fields/field-type';
+import {AjfField} from './interface/fields';
+import {AjfFieldType} from './interface/fields';
 
 /**
  *

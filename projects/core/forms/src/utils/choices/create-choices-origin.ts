@@ -20,7 +20,7 @@
  *
  */
 
-import {AjfChoicesOrigin} from '../../interface/choices/choices-origin';
+import {AjfChoicesOrigin} from '../../interface/choices';
 
 export type AjfChoicesOriginCreate<T> = Pick<AjfChoicesOrigin<any>, 'type' | 'name'> &
   Partial<AjfChoicesOrigin<T>>;

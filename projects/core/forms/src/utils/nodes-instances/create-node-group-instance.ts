@@ -20,7 +20,7 @@
  *
  */
 
-import {AjfNodeGroupInstance} from '../../interface/nodes-instances/node-group-instance';
+import {AjfNodeGroupInstance} from '../../interface/nodes-instances';
 import {AjfNodeInstanceCreate, createNodeInstance} from './create-node-instance';
 
 export type AjfNodeGroupInstanceCreate = AjfNodeInstanceCreate & Partial<AjfNodeGroupInstance>;

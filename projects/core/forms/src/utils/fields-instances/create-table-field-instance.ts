@@ -23,8 +23,8 @@
 import {AjfContext} from '@ajf/core/models';
 import {deepCopy} from '@ajf/core/utils';
 
-import {AjfTableFieldInstance} from '../../interface/fields-instances/table-field-instance';
-import {AjfTableField} from '../../interface/fields/table-field';
+import {AjfTableFieldInstance} from '../../interface/fields-instances';
+import {AjfTableField} from '../../interface/fields';
 
 import {AjfFieldInstanceCreate, createFieldInstance} from './create-field-instance';
 

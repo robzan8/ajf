@@ -22,7 +22,7 @@
 
 import {AjfContext, evaluateExpression} from '@ajf/core/models';
 
-import {AjfFieldWithChoicesInstance} from '../../interface/fields-instances/field-with-choices-instance';
+import {AjfFieldWithChoicesInstance} from '../../interface/fields-instances';
 import {nodeInstanceCompleteName} from '../nodes-instances/node-instance-complete-name';
 
 /**

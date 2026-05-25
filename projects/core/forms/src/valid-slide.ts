@@ -22,7 +22,7 @@
 
 import {Pipe, PipeTransform} from '@angular/core';
 
-import {AjfBaseSlideInstance} from './interface/slides-instances/base-slide-instance';
+import {AjfBaseSlideInstance} from './interface/slides-instances';
 import {validSlide} from './utils/slides-instances/valid-slide';
 
 /**

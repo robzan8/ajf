@@ -20,9 +20,9 @@
  *
  */
 
-import {AjfField} from '../../interface/fields/field';
-import {AjfTableField} from '../../interface/fields/table-field';
-import {AjfFieldType} from '../../interface/fields/field-type';
+import {AjfField} from '../../interface/fields';
+import {AjfTableField} from '../../interface/fields';
+import {AjfFieldType} from '../../interface/fields';
 
 /**
  * It is true if the field type is Table.

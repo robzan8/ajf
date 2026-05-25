@@ -22,7 +22,7 @@
 
 import {alwaysCondition} from '@ajf/core/models';
 
-import {AjfNode} from '../../interface/nodes/node';
+import {AjfNode} from '../../interface/nodes';
 
 export type AjfNodeCreate = Pick<AjfNode, 'nodeType' | 'id' | 'parent' | 'name'> & Partial<AjfNode>;
 /**

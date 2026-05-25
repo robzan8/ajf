@@ -20,7 +20,7 @@
  *
  */
 
-import {AjfValidation} from '../../interface/validation/validation';
+import {AjfValidation} from '../../interface/validation';
 import {getInstanceValidation} from './get-instance-validation';
 
 export function getInstanceValidations(

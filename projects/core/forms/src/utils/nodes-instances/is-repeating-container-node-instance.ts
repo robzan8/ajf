@@ -20,8 +20,8 @@
  *
  */
 
-import {AjfNodeInstance} from '../../interface/nodes-instances/node-instance';
-import {AjfRepeatingContainerNodeInstance} from '../../interface/nodes-instances/repeating-container-node-instance';
+import {AjfNodeInstance} from '../../interface/nodes-instances';
+import {AjfRepeatingContainerNodeInstance} from '../../interface/nodes-instances';
 import {isRepeatingContainerNode} from '../nodes/is-repeating-container-node';
 
 /**

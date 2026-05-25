@@ -25,7 +25,7 @@ import {Subscription} from 'rxjs';
 
 import {AjfBaseFieldComponent} from './base-field';
 import {AjfFormRendererService} from './form-renderer';
-import {AjfTableFieldInstance} from './interface/fields-instances/table-field-instance';
+import {AjfTableFieldInstance} from './interface/fields-instances';
 import {AJF_WARNING_ALERT_SERVICE, AjfWarningAlertService} from './warning-alert-service';
 
 /**

@@ -22,7 +22,7 @@
 
 import {Pipe, PipeTransform} from '@angular/core';
 
-import {AjfTableFormControl} from './interface/forms/table-form-control';
+import {AjfTableFormControl} from './interface/forms';
 
 /**
  * It filters the type of ctrl.

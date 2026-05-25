@@ -22,7 +22,7 @@
 
 import {Pipe, PipeTransform} from '@angular/core';
 
-import {AjfTableCell} from './interface/fields/table-field';
+import {AjfTableCell} from './interface/fields';
 
 /**
  * it checks if the cell parameter is an editable AjfTableCell.

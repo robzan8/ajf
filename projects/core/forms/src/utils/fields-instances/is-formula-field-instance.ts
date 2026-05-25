@@ -20,7 +20,7 @@
  *
  */
 
-import {AjfNodeInstance} from '../../interface/nodes-instances/node-instance';
+import {AjfNodeInstance} from '../../interface/nodes-instances';
 import {isFormulaField} from '../fields/is-formula-field';
 import {isFieldInstance} from '../nodes-instances/is-field-instance';
 

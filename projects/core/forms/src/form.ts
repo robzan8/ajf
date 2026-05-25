@@ -42,12 +42,12 @@ import {delayWhen, map, startWith, withLatestFrom} from 'rxjs/operators';
 import {AjfFormField} from './field';
 import {AjfFormInitStatus, AjfFormRendererService} from './form-renderer';
 
-import {AjfFieldType} from './interface/fields/field-type';
-import {AjfForm} from './interface/forms/form';
-import {AjfNodeGroupInstance} from './interface/nodes-instances/node-group-instance';
-import {AjfNodeInstance} from './interface/nodes-instances/node-instance';
-import {AjfRepeatingSlideInstance} from './interface/slides-instances/repeating-slide-instance';
-import {AjfSlideInstance} from './interface/slides-instances/slide-instance';
+import {AjfFieldType} from './interface/fields';
+import {AjfForm} from './interface/forms';
+import {AjfNodeGroupInstance} from './interface/nodes-instances';
+import {AjfNodeInstance} from './interface/nodes-instances';
+import {AjfRepeatingSlideInstance} from './interface/slides-instances';
+import {AjfSlideInstance} from './interface/slides-instances';
 import {isRepeatingSlideInstance} from './utils/nodes-instances/is-repeating-slide-instance';
 import {nodeInstanceCompleteName} from './utils/nodes-instances/node-instance-complete-name';
 

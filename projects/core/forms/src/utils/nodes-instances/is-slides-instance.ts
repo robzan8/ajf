@@ -20,9 +20,9 @@
  *
  */
 
-import {AjfNodeInstance} from '../../interface/nodes-instances/node-instance';
-import {AjfRepeatingSlideInstance} from '../../interface/slides-instances/repeating-slide-instance';
-import {AjfSlideInstance} from '../../interface/slides-instances/slide-instance';
+import {AjfNodeInstance} from '../../interface/nodes-instances';
+import {AjfRepeatingSlideInstance} from '../../interface/slides-instances';
+import {AjfSlideInstance} from '../../interface/slides-instances';
 import {isSlidesNode} from '../nodes/is-slides-node';
 
 /**

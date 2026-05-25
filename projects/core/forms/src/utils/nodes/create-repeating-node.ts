@@ -20,7 +20,7 @@
  *
  */
 
-import {AjfRepeatingNode} from '../../interface/nodes/repeating-node';
+import {AjfRepeatingNode} from '../../interface/nodes';
 import {AjfNodeCreate, createNode} from './create-node';
 
 export type AjfRepeatingNodeCreate = AjfNodeCreate & Partial<AjfRepeatingNode>;

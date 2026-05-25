@@ -20,9 +20,9 @@
  *
  */
 
-import {AjfField} from '../../interface/fields/field';
-import {AjfFieldWithChoices} from '../../interface/fields/field-with-choices';
-import {AjfFieldType} from '../../interface/fields/field-type';
+import {AjfField} from '../../interface/fields';
+import {AjfFieldWithChoices} from '../../interface/fields';
+import {AjfFieldType} from '../../interface/fields';
 
 /**
  * It is true if the field type is a SingleChoice or MultipleChoice.

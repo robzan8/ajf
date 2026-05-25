@@ -20,7 +20,7 @@
  *
  */
 
-import {AjfWarningGroup} from '../interface/warning/warning-group';
+import {AjfWarningGroup} from '../interface/warning';
 import {createWarningGroup} from '../utils/warning/create-warning-group';
 
 /**

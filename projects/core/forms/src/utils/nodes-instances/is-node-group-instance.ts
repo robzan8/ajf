@@ -20,8 +20,8 @@
  *
  */
 
-import {AjfNodeInstance} from '../../interface/nodes-instances/node-instance';
-import {AjfNodeGroupInstance} from '../../interface/nodes-instances/node-group-instance';
+import {AjfNodeInstance} from '../../interface/nodes-instances';
+import {AjfNodeGroupInstance} from '../../interface/nodes-instances';
 import {isNodeGroup} from '../nodes/is-node-group';
 
 /**

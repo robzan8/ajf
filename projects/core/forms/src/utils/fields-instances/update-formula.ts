@@ -22,7 +22,7 @@
 
 import {AjfContext, evaluateExpression} from '@ajf/core/models';
 
-import {AjfFieldInstance} from '../../interface/fields-instances/field-instance';
+import {AjfFieldInstance} from '../../interface/fields-instances';
 
 /**
  * Update the relative instance value and the context, only if it's visible.

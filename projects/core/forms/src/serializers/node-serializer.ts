@@ -22,20 +22,20 @@
 
 import {AjfConditionSerializer, AjfFormulaSerializer} from '@ajf/core/models';
 
-import {AjfAttachmentsOrigin} from '../interface/attachments/attachments-origin';
-import {AjfChoicesOrigin} from '../interface/choices/choices-origin';
-import {AjfField} from '../interface/fields/field';
-import {AjfFieldType} from '../interface/fields/field-type';
-import {AjfFieldWithChoices} from '../interface/fields/field-with-choices';
-import {AjfFormulaField} from '../interface/fields/formula-field';
-import {AjfContainerNode} from '../interface/nodes/container-node';
-import {AjfNode} from '../interface/nodes/node';
-import {AjfNodeGroup} from '../interface/nodes/node-group';
-import {AjfFieldNodeLink} from '../interface/nodes/node-link';
-import {AjfNodeType} from '../interface/nodes/node-type';
-import {AjfRepeatingNode} from '../interface/nodes/repeating-node';
-import {AjfRepeatingSlide} from '../interface/slides/repeating-slide';
-import {AjfSlide} from '../interface/slides/slide';
+import {AjfAttachmentsOrigin} from '../interface/attachments';
+import {AjfChoicesOrigin} from '../interface/choices';
+import {AjfField} from '../interface/fields';
+import {AjfFieldType} from '../interface/fields';
+import {AjfFieldWithChoices} from '../interface/fields';
+import {AjfFormulaField} from '../interface/fields';
+import {AjfContainerNode} from '../interface/nodes';
+import {AjfNode} from '../interface/nodes';
+import {AjfNodeGroup} from '../interface/nodes';
+import {AjfFieldNodeLink} from '../interface/nodes';
+import {AjfNodeType} from '../interface/nodes';
+import {AjfRepeatingNode} from '../interface/nodes';
+import {AjfRepeatingSlide} from '../interface/slides';
+import {AjfSlide} from '../interface/slides';
 import {AjfFieldCreate, createField} from '../utils/fields/create-field';
 import {createFieldWithChoices} from '../utils/fields/create-field-with-choices';
 import {componentsMap} from '../utils/fields/fields-map';

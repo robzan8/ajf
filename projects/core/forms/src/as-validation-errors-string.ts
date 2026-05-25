@@ -22,8 +22,8 @@
 
 import {Pipe, PipeTransform} from '@angular/core';
 
-import {AjfFieldInstance} from './interface/fields-instances/field-instance';
-import {AjfNodeInstance} from './interface/nodes-instances/node-instance';
+import {AjfFieldInstance} from './interface/fields-instances';
+import {AjfNodeInstance} from './interface/nodes-instances';
 
 /**
  * It casts an AjfNodeInstance as a string of all validation errors of an AjfFieldInstance.

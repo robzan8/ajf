@@ -22,9 +22,9 @@
 
 import {AjfContext} from '@ajf/core/models';
 import {deepCopy} from '@ajf/core/utils';
-import {AjfForm} from '../interface/forms/form';
-import {AjfRepeatingSlide} from '../interface/slides/repeating-slide';
-import {AjfSlide} from '../interface/slides/slide';
+import {AjfForm} from '../interface/forms';
+import {AjfRepeatingSlide} from '../interface/slides';
+import {AjfSlide} from '../interface/slides';
 import {AjfAttachmentsOriginSerializer} from './attachments-origin-serializer';
 import {AjfChoicesOriginSerializer} from './choices-origin-serializer';
 import {AjfNodeSerializer} from './node-serializer';

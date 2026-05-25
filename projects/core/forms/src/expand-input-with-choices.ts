@@ -22,7 +22,7 @@
 
 import {Pipe, PipeTransform} from '@angular/core';
 
-import {AjfFieldWithChoicesInstance} from './interface/fields-instances/field-with-choices-instance';
+import {AjfFieldWithChoicesInstance} from './interface/fields-instances';
 
 /**
  * It returns true if AjfFieldWithChoices is forceExpanded and filteredChoices length is

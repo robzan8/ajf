@@ -20,7 +20,7 @@
  *
  */
 
-import {AjfValidationGroup} from '../../interface/validation/validation-group';
+import {AjfValidationGroup} from '../../interface/validation';
 
 /**
  *  Create a AjfValidationGroup, apply conditions defaults when it missing

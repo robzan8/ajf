@@ -20,7 +20,7 @@
  *
  */
 
-import {AjfChoicesOrigin} from '../interface/choices/choices-origin';
+import {AjfChoicesOrigin} from '../interface/choices';
 import {AjfChoicesOriginCreate, createChoicesOrigin} from '../utils/choices/create-choices-origin';
 /**
  *  Create an AjfChoicesOrigin by json schema, apply a default value for type and name

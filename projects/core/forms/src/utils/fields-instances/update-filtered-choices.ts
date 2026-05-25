@@ -22,7 +22,7 @@
 
 import {AjfContext, createFunction} from '@ajf/core/models';
 
-import {AjfFieldWithChoicesInstance} from '../../interface/fields-instances/field-with-choices-instance';
+import {AjfFieldWithChoicesInstance} from '../../interface/fields-instances';
 
 export function updateFilteredChoices(
   instance: AjfFieldWithChoicesInstance<any>,

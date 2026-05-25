@@ -29,15 +29,15 @@ import {
 } from '@ajf/core/models';
 
 import {AjfFileSizeLimit} from '@ajf/core/file-input';
-import {AjfField} from '../../interface/fields/field';
-import {AjfFieldType} from '../../interface/fields/field-type';
-import {AjfNodeInstance} from '../../interface/nodes-instances/node-instance';
-import {AjfRepeatingContainerNodeInstance} from '../../interface/nodes-instances/repeating-container-node-instance';
-import {AjfNode} from '../../interface/nodes/node';
-import {AjfNodeGroup} from '../../interface/nodes/node-group';
-import {AjfNodeType} from '../../interface/nodes/node-type';
-import {AjfRepeatingSlide} from '../../interface/slides/repeating-slide';
-import {AjfSlide} from '../../interface/slides/slide';
+import {AjfField} from '../../interface/fields';
+import {AjfFieldType} from '../../interface/fields';
+import {AjfNodeInstance} from '../../interface/nodes-instances';
+import {AjfRepeatingContainerNodeInstance} from '../../interface/nodes-instances';
+import {AjfNode} from '../../interface/nodes';
+import {AjfNodeGroup} from '../../interface/nodes';
+import {AjfNodeType} from '../../interface/nodes';
+import {AjfRepeatingSlide} from '../../interface/slides';
+import {AjfSlide} from '../../interface/slides';
 import {createFieldInstance} from '../fields-instances/create-field-instance';
 import {createFieldWithChoicesInstance} from '../fields-instances/create-field-with-choices-instance';
 import {createTableFieldInstance} from '../fields-instances/create-table-field-instance';

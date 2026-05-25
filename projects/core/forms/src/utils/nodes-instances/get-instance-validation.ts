@@ -22,7 +22,7 @@
 
 import {renameArguments} from '@ajf/core/models';
 
-import {AjfValidation} from '../../interface/validation/validation';
+import {AjfValidation} from '../../interface/validation';
 import {createValidation} from '../validation/create-validation';
 
 export function getInstanceValidation(

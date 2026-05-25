@@ -20,8 +20,8 @@
  *
  */
 
-import {AjfFieldWithChoicesInstance} from '../../interface/fields-instances/field-with-choices-instance';
-import {AjfNodeInstance} from '../../interface/nodes-instances/node-instance';
+import {AjfFieldWithChoicesInstance} from '../../interface/fields-instances';
+import {AjfNodeInstance} from '../../interface/nodes-instances';
 import {isCustomFieldWithChoices} from '../fields/is-custom-field-with-choices';
 import {isFieldWithChoices} from '../fields/is-field-with-choices';
 import {isFieldInstance} from '../nodes-instances/is-field-instance';

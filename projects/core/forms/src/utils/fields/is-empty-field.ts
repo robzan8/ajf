@@ -20,9 +20,9 @@
  *
  */
 
-import {AjfField} from '../../interface/fields/field';
-import {AjfFieldType} from '../../interface/fields/field-type';
-import {AjfEmptyField} from '../../interface/fields/empty-field';
+import {AjfField} from '../../interface/fields';
+import {AjfFieldType} from '../../interface/fields';
+import {AjfEmptyField} from '../../interface/fields';
 
 /**
  * It is true if the field is an empty field

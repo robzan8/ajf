@@ -20,10 +20,10 @@
  *
  */
 
-import {AjfBaseField} from '../../interface/fields/base-field';
-import {AjfField} from '../../interface/fields/field';
-import {AjfFieldType} from '../../interface/fields/field-type';
-import {AjfNodeType} from '../../interface/nodes/node-type';
+import {AjfBaseField} from '../../interface/fields';
+import {AjfField} from '../../interface/fields';
+import {AjfFieldType} from '../../interface/fields';
+import {AjfNodeType} from '../../interface/nodes';
 import {AjfNodeCreate, createNode} from '../nodes/create-node';
 
 export type AjfFieldCreate = Omit<AjfNodeCreate, 'nodeType'> &

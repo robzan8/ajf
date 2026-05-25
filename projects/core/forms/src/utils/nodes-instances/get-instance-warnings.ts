@@ -20,7 +20,7 @@
  *
  */
 
-import {AjfWarning} from '../../interface/warning/warning';
+import {AjfWarning} from '../../interface/warning';
 import {getInstanceWarning} from './get-instance-warning';
 
 export function getInstanceWarnings(

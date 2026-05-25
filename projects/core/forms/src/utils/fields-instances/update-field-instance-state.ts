@@ -22,7 +22,7 @@
 
 import {AjfContext} from '@ajf/core/models';
 
-import {AjfFieldInstance} from '../../interface/fields-instances/field-instance';
+import {AjfFieldInstance} from '../../interface/fields-instances';
 import {updateConditionalBranches} from '../nodes-instances/update-conditional-branches';
 import {updateEditability} from '../nodes-instances/update-editability';
 import {updateVisibility} from '../nodes-instances/update-visibility';

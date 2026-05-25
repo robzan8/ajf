@@ -22,8 +22,8 @@
 
 import {AjfContext} from '@ajf/core/models';
 
-import {AjfValidationGroup} from '../../interface/validation/validation-group';
-import {AjfValidationResult} from '../../interface/validation/validation-results';
+import {AjfValidationGroup} from '../../interface/validation';
+import {AjfValidationResult} from '../../interface/validation';
 import {evaluateValidation} from './evaluate-validation';
 
 /**

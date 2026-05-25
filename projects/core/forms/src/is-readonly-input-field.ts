@@ -22,8 +22,8 @@
 
 import {Pipe, PipeTransform} from '@angular/core';
 
-import {AjfFieldType} from './interface/fields/field-type';
-import {AjfNodeInstance} from './interface/nodes-instances/node-instance';
+import {AjfFieldType} from './interface/fields';
+import {AjfNodeInstance} from './interface/nodes-instances';
 import {isFieldInstance} from './utils/nodes-instances/is-field-instance';
 
 /**

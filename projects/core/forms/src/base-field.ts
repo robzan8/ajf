@@ -27,7 +27,7 @@ import {filter, map, withLatestFrom} from 'rxjs/operators';
 
 import {AjfFieldWarningAlertResult} from './field-warning-alert-result';
 import {AjfFormRendererService} from './form-renderer';
-import {AjfFieldInstance} from './interface/fields-instances/field-instance';
+import {AjfFieldInstance} from './interface/fields-instances';
 import {AjfWarningAlertService} from './warning-alert-service';
 
 /**

@@ -1,4 +1,4 @@
-import {AjfFieldType} from '../../interface/fields/field-type';
+import {AjfFieldType} from '../../interface/fields';
 import {createFieldInstance} from '../fields-instances/create-field-instance';
 import {createField} from '../fields/create-field';
 

@@ -20,7 +20,7 @@
  *
  */
 
-import {AjfNode} from '../../interface/nodes/node';
+import {AjfNode} from '../../interface/nodes';
 import {isContainerNode} from './is-container-node';
 /**
  * It creates an one dimensional array of AjfNode.

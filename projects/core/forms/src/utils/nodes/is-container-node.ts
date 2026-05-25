@@ -20,9 +20,9 @@
  *
  */
 
-import {AjfNode} from '../../interface/nodes/node';
-import {AjfContainerNode} from '../../interface/nodes/container-node';
-import {AjfNodeType} from '../../interface/nodes/node-type';
+import {AjfNode} from '../../interface/nodes';
+import {AjfContainerNode} from '../../interface/nodes';
+import {AjfNodeType} from '../../interface/nodes';
 import {isSlidesNode} from './is-slides-node';
 /**
  * It is true if node is AjfNodeGroup or slides nodes.

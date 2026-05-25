@@ -20,9 +20,9 @@
  *
  */
 
-import {AjfNode} from '../../interface/nodes/node';
-import {AjfNodeType} from '../../interface/nodes/node-type';
-import {AjfSlide} from '../../interface/slides/slide';
+import {AjfNode} from '../../interface/nodes';
+import {AjfNodeType} from '../../interface/nodes';
+import {AjfSlide} from '../../interface/slides';
 
 /**
  * It is true if node is AjfSlide.

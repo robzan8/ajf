@@ -22,7 +22,7 @@
 
 import {Pipe, PipeTransform} from '@angular/core';
 
-import {AjfValidationResult} from './interface/validation/validation-results';
+import {AjfValidationResult} from './interface/validation';
 
 /**
  * It returns true if all validationResults are true.

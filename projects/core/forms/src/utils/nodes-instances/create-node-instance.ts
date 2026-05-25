@@ -21,7 +21,7 @@
  */
 
 import {EventEmitter} from '@angular/core';
-import {AjfBaseNodeInstance} from '../../interface/nodes-instances/base-node-instance';
+import {AjfBaseNodeInstance} from '../../interface/nodes-instances';
 
 export type AjfNodeInstanceCreate = Pick<AjfBaseNodeInstance, 'node'> &
   Partial<AjfBaseNodeInstance>;

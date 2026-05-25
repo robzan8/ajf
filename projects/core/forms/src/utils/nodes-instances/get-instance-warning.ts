@@ -22,7 +22,7 @@
 
 import {renameArguments} from '@ajf/core/models';
 
-import {AjfWarning} from '../../interface/warning/warning';
+import {AjfWarning} from '../../interface/warning';
 import {createWarning} from '../warning/create-warning';
 
 export function getInstanceWarning(

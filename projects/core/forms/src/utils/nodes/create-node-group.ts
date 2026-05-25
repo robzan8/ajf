@@ -20,8 +20,8 @@
  *
  */
 
-import {AjfNodeGroup} from '../../interface/nodes/node-group';
-import {AjfNodeType} from '../../interface/nodes/node-type';
+import {AjfNodeGroup} from '../../interface/nodes';
+import {AjfNodeType} from '../../interface/nodes';
 import {AjfContainerNodeCreate, createContainerNode} from './create-container-node';
 import {AjfRepeatingNodeCreate, createRepeatingNode} from './create-repeating-node';
 

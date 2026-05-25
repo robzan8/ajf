@@ -23,7 +23,7 @@
 import {AjfContext, BuildStringIdentifierOpts} from '@ajf/core/common';
 import {Pipe, PipeTransform} from '@angular/core';
 
-import {AjfForm} from './interface/forms/form';
+import {AjfForm} from './interface/forms';
 import {buildFormStringIdentifier} from './utils/forms/build-form-string-identifier';
 
 /**

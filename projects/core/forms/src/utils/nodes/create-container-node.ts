@@ -20,7 +20,7 @@
  *
  */
 
-import {AjfContainerNode} from '../../interface/nodes/container-node';
+import {AjfContainerNode} from '../../interface/nodes';
 import {AjfNodeCreate, createNode} from './create-node';
 
 export type AjfContainerNodeCreate = AjfNodeCreate & Partial<AjfContainerNode>;

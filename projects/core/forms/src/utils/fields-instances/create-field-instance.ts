@@ -23,8 +23,8 @@
 import {AjfContext, evaluateExpression} from '@ajf/core/models';
 import {EventEmitter} from '@angular/core';
 
-import {AjfFieldInstance} from '../../interface/fields-instances/field-instance';
-import {AjfNode} from '../../interface/nodes/node';
+import {AjfFieldInstance} from '../../interface/fields-instances';
+import {AjfNode} from '../../interface/nodes';
 import {AjfNodeInstanceCreate, createNodeInstance} from '../nodes-instances/create-node-instance';
 import {nodeInstanceCompleteName} from '../nodes-instances/node-instance-complete-name';
 

@@ -20,7 +20,7 @@
  *
  */
 
-import {AjfAttachmentsOrigin} from '../../interface/attachments/attachments-origin';
+import {AjfAttachmentsOrigin} from '../../interface/attachments';
 
 export type AjfAttachmentsOriginCreate<T> = Pick<AjfAttachmentsOrigin<T>, 'name'> &
   Partial<AjfAttachmentsOrigin<T>>;

@@ -20,7 +20,7 @@
  *
  */
 
-import {AjfValidation} from '../../interface/validation/validation';
+import {AjfValidation} from '../../interface/validation';
 /**
  *  Create a AjfValidation, apply clientValidation and errorMessage defaults when it missing
  */

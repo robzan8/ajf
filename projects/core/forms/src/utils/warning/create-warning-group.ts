@@ -20,7 +20,7 @@
  *
  */
 
-import {AjfWarningGroup} from '../../interface/warning/warning-group';
+import {AjfWarningGroup} from '../../interface/warning';
 
 /**
  *  Create an AjfWarningGroup, apply conditions defaults when it missing

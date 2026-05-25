@@ -20,8 +20,8 @@
  *
  */
 
-import {AjfTableFieldInstance} from '../../interface/fields-instances/table-field-instance';
-import {AjfNodeInstance} from '../../interface/nodes-instances/node-instance';
+import {AjfTableFieldInstance} from '../../interface/fields-instances';
+import {AjfNodeInstance} from '../../interface/nodes-instances';
 import {isTableField} from '../fields/is-table-field';
 import {isFieldInstance} from '../nodes-instances/is-field-instance';
 

@@ -20,7 +20,7 @@
  *
  */
 
-import {AjfForm} from '../../interface/forms/form';
+import {AjfForm} from '../../interface/forms';
 
 export type AjfFormCreate = Partial<AjfForm>;
 

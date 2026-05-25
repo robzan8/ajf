@@ -22,10 +22,10 @@
 
 import {AjfContext} from '@ajf/core/common';
 import {deepCopy} from '@ajf/core/utils';
-import {AjfField} from './interface/fields/field';
-import {AjfFieldType} from './interface/fields/field-type';
-import {AjfContainerNode} from './interface/nodes/container-node';
-import {AjfNode} from './interface/nodes/node';
+import {AjfField} from './interface/fields';
+import {AjfFieldType} from './interface/fields';
+import {AjfContainerNode} from './interface/nodes';
+import {AjfNode} from './interface/nodes';
 import {AjfFormSerializer} from './serializers/form-serializer';
 import {AjfFormCreate} from './utils/forms/create-form';
 import {isField} from './utils/nodes/is-field';

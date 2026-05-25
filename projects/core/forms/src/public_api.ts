@@ -79,82 +79,41 @@ export * from './read-only-table-field';
 export * from './form-to-pdf/form-to-pdf';
 export * from './form-to-pdf/form-to-doc';
 
-export * from './interface/attachments/attachment';
-export * from './interface/attachments/attachments-fixed-origin';
-export * from './interface/attachments/attachments-origin';
-export * from './interface/attachments/attachments-type';
-export * from './interface/choices/base-choices-origin';
-export * from './interface/choices/choice';
-export * from './interface/choices/choices-fixed-origin';
-export * from './interface/choices/choices-function';
-export * from './interface/choices/choices-function-origin';
-export * from './interface/choices/choices-observable-array-origin';
-export * from './interface/choices/choices-observable-origin';
-export * from './interface/choices/choices-origin';
-export * from './interface/choices/choices-origin-type';
-export * from './interface/choices/choices-promise-origin';
-export * from './interface/choices/choices-type';
-export * from './interface/fields/base-field';
-export * from './interface/fields/boolean-field';
-export * from './interface/fields/date-field';
-export * from './interface/fields/date-input-field';
-export * from './interface/fields/empty-field';
-export * from './interface/fields/field';
-export * from './interface/fields/field-components-map';
-export * from './interface/fields/field-size';
-export * from './interface/fields/field-type';
-export * from './interface/fields/field-with-choices';
-export * from './interface/fields/file-field';
-export * from './interface/fields/formula-field';
-export * from './interface/fields/multiple-choice-field';
-export * from './interface/fields/number-field';
-export * from './interface/fields/range-field';
-export * from './interface/fields/single-choice-field';
-export * from './interface/fields/string-field';
-export * from './interface/fields/table-field';
-export * from './interface/fields/text-field';
-export * from './interface/fields/time-field';
-export * from './interface/fields-instances/date-field-instance';
-export * from './interface/fields-instances/date-input-field-instance';
-export * from './interface/fields-instances/empty-field-instance';
-export * from './interface/fields-instances/field-instance';
-export * from './interface/fields-instances/field-state';
-export * from './interface/fields-instances/field-with-choices-instance';
-export * from './interface/fields-instances/formula-field-instance';
-export * from './interface/fields-instances/range-field-instance';
-export * from './interface/fields-instances/table-field-instance';
-export * from './interface/forms/form';
-export * from './interface/forms/form-string-identifier';
-export * from './interface/nodes/base-node';
-export * from './interface/nodes/container-node';
-export * from './interface/nodes/node';
-export * from './interface/nodes/node-group';
-export * from './interface/nodes/node-link';
-export * from './interface/nodes/node-type';
-export * from './interface/nodes/repeating-container-node';
-export * from './interface/nodes/repeating-node';
-export * from './interface/nodes-instances/base-node-instance';
-export * from './interface/nodes-instances/base-repeating-container-node-instance';
-export * from './interface/nodes-instances/container-node-instance';
-export * from './interface/nodes-instances/node-group-instance';
-export * from './interface/nodes-instances/node-instance';
-export * from './interface/nodes-instances/repeating-container-node-instance';
-export * from './interface/nodes-instances/repeating-node-instance';
-export * from './interface/operations/nodes-instances-operation';
-export * from './interface/operations/nodes-operation';
-export * from './interface/operations/renderer-update-map-operation';
-export * from './interface/renderer-maps/update-map';
-export * from './interface/slides/repeating-slide';
-export * from './interface/slides/slide';
-export * from './interface/slides-instances/base-slide-instance';
-export * from './interface/slides-instances/repeating-slide-instance';
-export * from './interface/slides-instances/slide-instance';
-export * from './interface/validation/validation';
-export * from './interface/validation/validation-group';
-export * from './interface/validation/validation-results';
-export * from './interface/warning/warning';
-export * from './interface/warning/warning-group';
-export * from './interface/warning/warning-result';
+export * from './interface/attachments';
+export * from './interface/choices';
+export {
+  AjfBaseField,
+  AjfBooleanField,
+  AjfDateField,
+  AjfDateInputField,
+  AjfEmptyField,
+  AjfField,
+  AjfFieldComponentsMap,
+  AjfFieldSize,
+  AjfFieldType,
+  AjfFieldWithChoices,
+  AjfFileField,
+  AjfFormulaField,
+  AjfMultipleChoiceField,
+  AjfNumberField,
+  AjfRangeField,
+  AjfSingleChoiceField,
+  AjfStringField,
+  AjfTableCell,
+  AjfTableField,
+  AjfTextField,
+  AjfTimeField,
+} from './interface/fields';
+export * from './interface/fields-instances';
+export {AjfForm, AjfFormStringIdentifier, InputType} from './interface/forms';
+export * from './interface/nodes';
+export * from './interface/nodes-instances';
+export * from './interface/operations';
+export * from './interface/renderer-maps';
+export * from './interface/slides';
+export * from './interface/slides-instances';
+export * from './interface/validation';
+export * from './interface/warning';
 
 export * from './utils/choices/create-choices-fixed-origin';
 export * from './utils/choices/create-choices-function-origin';

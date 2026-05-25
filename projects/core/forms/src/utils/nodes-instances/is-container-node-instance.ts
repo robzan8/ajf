@@ -20,8 +20,8 @@
  *
  */
 
-import {AjfContainerNodeInstance} from '../../interface/nodes-instances/container-node-instance';
-import {AjfNodeInstance} from '../../interface/nodes-instances/node-instance';
+import {AjfContainerNodeInstance} from '../../interface/nodes-instances';
+import {AjfNodeInstance} from '../../interface/nodes-instances';
 import {isContainerNode} from '../nodes/is-container-node';
 /**
  * It is true if nodeInstance is realtive to an AjfNodeGroup or slides nodes.

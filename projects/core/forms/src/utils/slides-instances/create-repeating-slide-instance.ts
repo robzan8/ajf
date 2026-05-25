@@ -20,8 +20,8 @@
  *
  */
 
-import {AjfNodeType} from '../../interface/nodes/node-type';
-import {AjfRepeatingSlideInstance} from '../../interface/slides-instances/repeating-slide-instance';
+import {AjfNodeType} from '../../interface/nodes';
+import {AjfRepeatingSlideInstance} from '../../interface/slides-instances';
 import {AjfSlideInstanceCreate, createSlideInstance} from './create-slide-instance';
 
 export type AjfRepeatingSlideInstanceCreate = Omit<AjfSlideInstanceCreate, 'node'> &

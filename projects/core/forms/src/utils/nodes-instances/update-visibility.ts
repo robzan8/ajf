@@ -22,7 +22,7 @@
 
 import {AjfCondition, AjfContext, evaluateExpression} from '@ajf/core/models';
 
-import {AjfNodeInstance} from '../../interface/nodes-instances/node-instance';
+import {AjfNodeInstance} from '../../interface/nodes-instances';
 
 /**
  * It updates instance.visible with the result of evaluating instance.visibility.condition.

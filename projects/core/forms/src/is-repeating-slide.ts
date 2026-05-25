@@ -21,7 +21,7 @@
  */
 
 import {Pipe, PipeTransform} from '@angular/core';
-import {AjfNodeInstance} from './interface/nodes-instances/node-instance';
+import {AjfNodeInstance} from './interface/nodes-instances';
 import {isRepeatingSlideInstance} from './utils/nodes-instances/is-repeating-slide-instance';
 
 /**

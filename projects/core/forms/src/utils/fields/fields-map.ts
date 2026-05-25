@@ -20,7 +20,7 @@
  *
  */
 
-import {AjfFieldComponentsMap} from '../../interface/fields/field-components-map';
+import {AjfFieldComponentsMap} from '../../interface/fields';
 /**
  * The componentsMap is a dictionary key value
  * Represents the association between an AjfFieldType and the

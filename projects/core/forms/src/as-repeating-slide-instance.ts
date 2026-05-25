@@ -22,8 +22,8 @@
 
 import {Pipe, PipeTransform} from '@angular/core';
 
-import {AjfRepeatingSlideInstance} from './interface/slides-instances/repeating-slide-instance';
-import {AjfSlideInstance} from './interface/slides-instances/slide-instance';
+import {AjfRepeatingSlideInstance} from './interface/slides-instances';
+import {AjfSlideInstance} from './interface/slides-instances';
 
 /**
  * It casts an AjfSlideInstance as AjfRepeatingSlideInstance.

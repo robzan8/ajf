@@ -20,9 +20,9 @@
  *
  */
 
-import {AjfNode} from '../../interface/nodes/node';
-import {AjfNodeType} from '../../interface/nodes/node-type';
-import {AjfRepeatingContainerNode} from '../../interface/nodes/repeating-container-node';
+import {AjfNode} from '../../interface/nodes';
+import {AjfNodeType} from '../../interface/nodes';
+import {AjfRepeatingContainerNode} from '../../interface/nodes';
 
 /**
  * It is true if node is AjfNodeGroup or AjfRepeatingSlide.

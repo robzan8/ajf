@@ -24,7 +24,7 @@ import {ChangeDetectorRef} from '@angular/core';
 
 import {AjfBaseFieldComponent} from './base-field';
 import {AjfFormRendererService} from './form-renderer';
-import {AjfFieldWithChoicesInstance} from './interface/fields-instances/field-with-choices-instance';
+import {AjfFieldWithChoicesInstance} from './interface/fields-instances';
 import {AjfWarningAlertService} from './warning-alert-service';
 
 /**

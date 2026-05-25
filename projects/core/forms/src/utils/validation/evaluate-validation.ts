@@ -22,8 +22,8 @@
 
 import {AjfContext, evaluateExpression} from '@ajf/core/models';
 
-import {AjfValidation} from '../../interface/validation/validation';
-import {AjfValidationResult} from '../../interface/validation/validation-results';
+import {AjfValidation} from '../../interface/validation';
+import {AjfValidationResult} from '../../interface/validation';
 
 /**
  * It evaluates validation and returns an AjfValidationResult.

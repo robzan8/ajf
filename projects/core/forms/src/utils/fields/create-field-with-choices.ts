@@ -20,7 +20,7 @@
  *
  */
 
-import {AjfFieldWithChoices} from '../../interface/fields/field-with-choices';
+import {AjfFieldWithChoices} from '../../interface/fields';
 import {AjfFieldCreate, createField} from './create-field';
 
 export type AjfFieldWithChoicesCreate<T> = AjfFieldCreate &

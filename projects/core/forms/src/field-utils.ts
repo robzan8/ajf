@@ -20,7 +20,7 @@
  *
  */
 
-import {AjfFieldType} from './interface/fields/field-type';
+import {AjfFieldType} from './interface/fields';
 
 /**
  *

@@ -22,7 +22,7 @@
 
 import {AjfContext, evaluateExpression} from '@ajf/core/models';
 
-import {AjfFieldInstance} from '../../interface/fields-instances/field-instance';
+import {AjfFieldInstance} from '../../interface/fields-instances';
 
 /**
  * If nextSlideCondition of instance is defined return the evaluateExpression of nextSlideCondition

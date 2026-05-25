@@ -20,7 +20,7 @@
  *
  */
 
-import {AjfBaseNodeInstance} from '../../interface/nodes-instances/base-node-instance';
+import {AjfBaseNodeInstance} from '../../interface/nodes-instances';
 
 // TODO: add details
 /**

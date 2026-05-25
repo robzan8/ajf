@@ -22,7 +22,7 @@
 
 import {AjfContext} from '@ajf/core/models';
 
-import {AjfFormulaFieldInstance} from '../../interface/fields-instances/formula-field-instance';
+import {AjfFormulaFieldInstance} from '../../interface/fields-instances';
 import {AjfFieldInstanceCreate, createFieldInstance} from './create-field-instance';
 
 export type AjfFormulaFieldInstanceCreate = AjfFieldInstanceCreate &

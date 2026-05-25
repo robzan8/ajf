@@ -22,7 +22,7 @@
 
 import {AjfContext, evaluateExpression} from '@ajf/core/models';
 
-import {AjfRepeatingNodeInstance} from '../../interface/nodes-instances/repeating-node-instance';
+import {AjfRepeatingNodeInstance} from '../../interface/nodes-instances';
 import {nodeInstanceCompleteName} from '../nodes-instances/node-instance-complete-name';
 
 /**

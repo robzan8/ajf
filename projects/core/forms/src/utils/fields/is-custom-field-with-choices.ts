@@ -20,7 +20,7 @@
  *
  */
 
-import {AjfField} from '../../interface/fields/field';
+import {AjfField} from '../../interface/fields';
 import {componentsMap} from './fields-map';
 /**
  * It is true if

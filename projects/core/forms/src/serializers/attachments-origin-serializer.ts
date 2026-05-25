@@ -20,7 +20,7 @@
  *
  */
 
-import {AjfAttachmentsOrigin} from '../interface/attachments/attachments-origin';
+import {AjfAttachmentsOrigin} from '../interface/attachments';
 import {
   AjfAttachmentsOriginCreate,
   createAttachmentsOrigin,

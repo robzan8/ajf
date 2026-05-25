@@ -23,8 +23,8 @@
 import {AjfContext} from '@ajf/core/models';
 import {deepCopy} from '@ajf/core/utils';
 
-import {AjfValidationGroup} from '../../interface/validation/validation-group';
-import {AjfValidationResult} from '../../interface/validation/validation-results';
+import {AjfValidationGroup} from '../../interface/validation';
+import {AjfValidationResult} from '../../interface/validation';
 
 import {evaluateValidationConditions} from './evaluate-validation-conditions';
 import {evaluateValidationMaxDigits} from './evaluate-validation-max-digits';

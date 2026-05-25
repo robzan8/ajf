@@ -27,8 +27,8 @@ import {
   BuildStringIdentifierOpts,
 } from '@ajf/core/common';
 
-import {AjfFieldWithChoices} from '../../interface/fields/field-with-choices';
-import {AjfForm} from '../../interface/forms/form';
+import {AjfFieldWithChoices} from '../../interface/fields';
+import {AjfForm} from '../../interface/forms';
 import {isFieldWithChoices} from '../fields/is-field-with-choices';
 import {isMultipleChoiceField} from '../fields/is-multiple-choice-field';
 import {isSingleChoiceField} from '../fields/is-single-choice-field';

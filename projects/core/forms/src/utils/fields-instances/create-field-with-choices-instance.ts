@@ -23,7 +23,7 @@
 import {AjfContext} from '@ajf/core/models';
 import {EventEmitter} from '@angular/core';
 
-import {AjfFieldWithChoicesInstance} from '../../interface/fields-instances/field-with-choices-instance';
+import {AjfFieldWithChoicesInstance} from '../../interface/fields-instances';
 import {AjfFieldInstanceCreate, createFieldInstance} from './create-field-instance';
 
 export type AjfFieldWithChoicesInstanceCreate<T> = AjfFieldInstanceCreate &

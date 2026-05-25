@@ -20,9 +20,9 @@
  *
  */
 
-import {AjfField} from '../../interface/fields/field';
-import {AjfNode} from '../../interface/nodes/node';
-import {AjfNodeType} from '../../interface/nodes/node-type';
+import {AjfField} from '../../interface/fields';
+import {AjfNode} from '../../interface/nodes';
+import {AjfNodeType} from '../../interface/nodes';
 /**
  * It is true if node is an AjfField.
  */

@@ -34,9 +34,9 @@ import {Subscription} from 'rxjs';
 
 import {AjfBaseFieldComponent} from './base-field';
 import {AjfFieldHost} from './field-host';
-import {AjfFieldInstance} from './interface/fields-instances/field-instance';
-import {AjfFieldComponentsMap} from './interface/fields/field-components-map';
-import {AjfFieldType} from './interface/fields/field-type';
+import {AjfFieldInstance} from './interface/fields-instances';
+import {AjfFieldComponentsMap} from './interface/fields';
+import {AjfFieldType} from './interface/fields';
 
 /**
  * It is a base wrapper of every ajfField.

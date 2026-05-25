@@ -20,7 +20,7 @@
  *
  */
 
-import {AjfValidationGroup} from '../interface/validation/validation-group';
+import {AjfValidationGroup} from '../interface/validation';
 import {createValidationGroup} from '../utils/validation/create-validation-group';
 
 /**

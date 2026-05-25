@@ -31,8 +31,8 @@ import {filter, map} from 'rxjs/operators';
 
 import {AjfBaseFieldComponent} from './base-field';
 import {AjfFormRendererService} from './form-renderer';
-import {AjfFieldWithChoicesInstance} from './interface/fields-instances/field-with-choices-instance';
-import {AjfFieldType} from './interface/fields/field-type';
+import {AjfFieldWithChoicesInstance} from './interface/fields-instances';
+import {AjfFieldType} from './interface/fields';
 import {AJF_WARNING_ALERT_SERVICE, AjfWarningAlertService} from './warning-alert-service';
 
 /**

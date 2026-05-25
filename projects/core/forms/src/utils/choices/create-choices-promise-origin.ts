@@ -20,7 +20,7 @@
  *
  */
 
-import {AjfChoicesPromiseOrigin} from '../../interface/choices/choices-promise-origin';
+import {AjfChoicesPromiseOrigin} from '../../interface/choices';
 import {AjfChoicesOriginCreate} from './create-choices-origin';
 
 export type AjfChoicesPromiseOriginCreate<T> = Omit<AjfChoicesOriginCreate<T>, 'type'> &

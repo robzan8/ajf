@@ -22,7 +22,7 @@
 
 import {AjfContext} from '@ajf/core/models';
 
-import {AjfFieldInstance} from '../../interface/fields-instances/field-instance';
+import {AjfFieldInstance} from '../../interface/fields-instances';
 import {nodeInstanceCompleteName} from '../nodes-instances/node-instance-complete-name';
 import {evaluateWarningGroup} from '../warning/evaluate-warning-group';
 

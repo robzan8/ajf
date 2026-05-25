@@ -21,8 +21,8 @@
  */
 
 import {AjfCondition, AjfContext, evaluateExpression} from '@ajf/core/models';
-import {AjfSlideInstance} from '../../interface/slides-instances/slide-instance';
-import {AjfFieldInstance} from '../../interface/fields-instances/field-instance';
+import {AjfSlideInstance} from '../../interface/slides-instances';
+import {AjfFieldInstance} from '../../interface/fields-instances';
 
 /**
  *

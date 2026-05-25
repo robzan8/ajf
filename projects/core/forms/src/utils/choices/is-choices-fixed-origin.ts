@@ -20,7 +20,7 @@
  *
  */
 
-import {AjfChoicesOrigin} from '../../interface/choices/choices-origin';
+import {AjfChoicesOrigin} from '../../interface/choices';
 import {isChoicesOrigin} from './is-choices-origin';
 
 /**

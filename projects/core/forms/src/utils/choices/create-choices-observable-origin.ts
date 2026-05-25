@@ -20,7 +20,7 @@
  *
  */
 
-import {AjfChoicesObservableOrigin} from '../../interface/choices/choices-observable-origin';
+import {AjfChoicesObservableOrigin} from '../../interface/choices';
 import {AjfChoicesOriginCreate} from './create-choices-origin';
 
 export type AjfChoicesObservableOriginCreate<T> = Omit<AjfChoicesOriginCreate<T>, 'type'> &

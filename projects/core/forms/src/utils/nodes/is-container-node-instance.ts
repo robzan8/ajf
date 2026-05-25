@@ -20,8 +20,8 @@
  *
  */
 
-import {AjfNode} from '../../interface/nodes/node';
-import {AjfNodeType} from '../../interface/nodes/node-type';
+import {AjfNode} from '../../interface/nodes';
+import {AjfNodeType} from '../../interface/nodes';
 
 /**
  * It is true if node is AjfNodeGroup or AjfRepeatingSlide.

@@ -20,7 +20,7 @@
  *
  */
 
-import {AjfBaseSlideInstance} from '../../interface/slides-instances/base-slide-instance';
+import {AjfBaseSlideInstance} from '../../interface/slides-instances';
 
 /**
  * It checks if the idx slide of

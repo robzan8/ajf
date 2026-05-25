@@ -21,7 +21,7 @@
  */
 
 import {neverCondition} from '@ajf/core/models';
-import {AjfSlideInstance} from '../../interface/slides-instances/slide-instance';
+import {AjfSlideInstance} from '../../interface/slides-instances';
 import {createNodeInstance} from '../nodes-instances/create-node-instance';
 import {AjfBaseSlideInstanceCreate} from './base';
 

@@ -20,9 +20,9 @@
  *
  */
 
-import {AjfField} from '../../interface/fields/field';
-import {AjfRangeField} from '../../interface/fields/range-field';
-import {AjfFieldType} from '../../interface/fields/field-type';
+import {AjfField} from '../../interface/fields';
+import {AjfRangeField} from '../../interface/fields';
+import {AjfFieldType} from '../../interface/fields';
 
 /**
  * It is true if the field is a range field
