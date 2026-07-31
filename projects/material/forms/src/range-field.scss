@@ -8,6 +8,26 @@ ajf-range {
     padding: 0 10px;
   }
 
+  // No value has been selected yet: the slider must not look like the minimum
+  // value was picked, so it is rendered in grey.
+  .ajf-range-no-value {
+    --mdc-slider-handle-color: #9e9e9e;
+    --mdc-slider-focus-handle-color: #9e9e9e;
+    --mdc-slider-hover-handle-color: #9e9e9e;
+    --mdc-slider-active-track-color: #9e9e9e;
+    --mdc-slider-inactive-track-color: #9e9e9e;
+    --mdc-slider-with-tick-marks-active-container-color: #fff;
+    --mdc-slider-with-tick-marks-inactive-container-color: #9e9e9e;
+    --mdc-slider-label-container-color: #9e9e9e;
+    --mat-slider-ripple-color: #9e9e9e;
+    --mat-slider-hover-state-layer-color: rgba(158, 158, 158, 0.05);
+    --mat-slider-focus-state-layer-color: rgba(158, 158, 158, 0.2);
+
+    .ajf-range-label {
+      color: #9e9e9e;
+    }
+  }
+
   .ajf-rating-container {
     display: flex;
     align-items: center;

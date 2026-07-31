@@ -48,6 +48,14 @@ export class AjfRangeFieldComponent extends AjfRange {
     super(cdr, service, was);
   }
 
+  /**
+   * True when no value has been selected yet, so that the slider is not
+   * rendered as if the minimum value had been picked.
+   */
+  isEmpty(value: unknown): boolean {
+    return value === null || value === undefined;
+  }
+
   enumerateStars(): number[] {
     const nums: number[] = [];
     for (let i = 1; i <= (this.end || 5); i++) {
