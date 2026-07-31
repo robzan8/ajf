@@ -1,5 +1,8 @@
 <ng-container *ngIf="control|async as ctrl">
-  <div *ngIf="appearance !== 'rating'; else ratingTemplate">
+  <div
+    *ngIf="appearance !== 'rating'; else ratingTemplate"
+    [class.ajf-range-no-value]="isEmpty(ctrl.value)"
+  >
     <mat-slider
       discrete
       showTickMarks
@@ -10,7 +13,7 @@
       [attr.name]="name"
     ><input matSliderThumb [value]="value" [formControl]="ctrl" /></mat-slider>
     <div class="ajf-range-label">
-      <label>{{ctrl.value}}</label>
+      <label>{{isEmpty(ctrl.value) ? ('No value selected'|transloco) : ctrl.value}}</label>
     </div>
   </div>
   
