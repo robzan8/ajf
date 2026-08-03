@@ -47,6 +47,8 @@ import {isField} from '../utils/nodes/is-field';
 import {isRepeatingSlide} from '../utils/nodes/is-repeating-slide';
 import {isSlideNode} from '../utils/nodes/is-slide-node';
 
+import {ChoicesMap, lookupArrayFunction, lookupStringFunction, stripHTML} from './utils';
+
 function downloadBlob(b: Blob) {
   const url = URL.createObjectURL(b);
   const a = document.createElement('a');
@@ -84,64 +86,6 @@ export function createFormDoc(
     const doc = formToDoc(form, t, header, context);
     Packer.toBlob(doc).then(blob => resolve(blob));
   });
-}
-
-// ChoicesMap maps a choicesOriginRef to the list the choices.
-interface ChoicesMap {
-  [name: string]: AjfChoice<any>[];
-}
-
-function stripHTML(s: string): string {
-  return s.replace(/<\/?[^>]+(>|$)/g, '');
-}
-
-// Given a context, lookupStringFunction returns a function that allows to retrieve
-// the field values from the context. The values are returned as doc-friendly strings.
-// rep is the index of the repeating slide, if the field belongs to one.
-function lookupStringFunction(context?: AjfContext, rep?: number): (name: string) => string {
-  if (context == null) {
-    return (_: string) => '';
-  }
-  return (name: string) => {
-    if (name == null) {
-      return '';
-    }
-    if (rep != null) {
-      name = name + '__' + rep;
-    }
-    const val = context[name];
-    if (val == null) {
-      return '';
-    }
-    if (val === true) {
-      return 'yes';
-    }
-    if (val === false) {
-      return 'no';
-    }
-    return String(val);
-  };
-}
-
-// Analogous to lookupStringFunction, but for multiple-choice questions,
-// returning an array of values.
-function lookupArrayFunction(context?: AjfContext, rep?: number): (name: string) => string[] {
-  if (context == null) {
-    return (_: string) => [];
-  }
-  return (name: string) => {
-    if (name == null) {
-      return [];
-    }
-    if (rep != null) {
-      name = name + '__' + rep;
-    }
-    const val = context[name];
-    if (Array.isArray(val)) {
-      return val;
-    }
-    return [];
-  };
 }
 
 type SectionChild = Paragraph | Table;
