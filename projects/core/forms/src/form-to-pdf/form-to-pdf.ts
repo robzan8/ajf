@@ -42,6 +42,8 @@ import {isField} from '../utils/nodes/is-field';
 import {isRepeatingSlide} from '../utils/nodes/is-repeating-slide';
 import {isSlideNode} from '../utils/nodes/is-slide-node';
 
+import {ChoicesMap, lookupArrayFunction, lookupStringFunction, stripHTML} from './utils';
+
 export function createFormPdf(
   form: AjfForm,
   translate?: (_: string) => string,
@@ -52,64 +54,6 @@ export function createFormPdf(
   const t = translate ? translate : (s: string) => s;
   const pdfDef = formToPdf(form, t, orientation, header, context);
   return createPdf(pdfDef);
-}
-
-// ChoicesMap maps a choicesOriginRef to the list the choices.
-interface ChoicesMap {
-  [name: string]: AjfChoice<any>[];
-}
-
-function stripHTML(s: string): string {
-  return s.replace(/<\/?[^>]+(>|$)/g, '');
-}
-
-// Given a context, lookupStringFunction returns a function that allows to retrieve
-// the field values from the context. The values are returned as print-friendly strings.
-// rep is the index of the repeating slide, if the field belongs to one.
-function lookupStringFunction(context?: AjfContext, rep?: number): (name: string) => string {
-  if (context == null) {
-    return (_: string) => ' ';
-  }
-  return (name: string) => {
-    if (name == null) {
-      return ' ';
-    }
-    if (rep != null) {
-      name = name + '__' + rep;
-    }
-    const val = context[name];
-    if (val == null) {
-      return ' ';
-    }
-    if (val === true) {
-      return 'yes';
-    }
-    if (val === false) {
-      return 'no';
-    }
-    return String(val);
-  };
-}
-
-// Analogous to lookupStringFunction, but for multiple-choice questions,
-// returning an array of values.
-function lookupArrayFunction(context?: AjfContext, rep?: number): (name: string) => string[] {
-  if (context == null) {
-    return (_: string) => [];
-  }
-  return (name: string) => {
-    if (name == null) {
-      return [];
-    }
-    if (rep != null) {
-      name = name + '__' + rep;
-    }
-    const val = context[name];
-    if (Array.isArray(val)) {
-      return val;
-    }
-    return [];
-  };
 }
 
 // Given an AjfForm, returns its pdfmake pdf document definition.
@@ -201,7 +145,7 @@ function fieldToPdf(
     return [];
   }
 
-  const lookupString = lookupStringFunction(context, rep);
+  const lookupString = lookupStringFunction(context, rep, ' ');
 
   switch (field.fieldType) {
     case AjfFieldType.String:
