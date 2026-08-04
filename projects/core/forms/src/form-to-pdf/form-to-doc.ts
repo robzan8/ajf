@@ -47,7 +47,7 @@ import {isField} from '../utils/nodes/is-field';
 import {isRepeatingSlide} from '../utils/nodes/is-repeating-slide';
 import {isSlideNode} from '../utils/nodes/is-slide-node';
 
-import {ChoicesMap, lookupArrayFunction, lookupStringFunction, stripHTML} from './utils';
+import {ChoicesMap, ImageMap, loadFormImages, lookupArrayFunction, lookupStringFunction, stripHTML} from './utils';
 
 function downloadBlob(b: Blob) {
   const url = URL.createObjectURL(b);
@@ -77,14 +77,16 @@ export function downloadFormDoc(
 
 export function createFormDoc(
   form: AjfForm,
-  translate?: TranslateFunc, 
+  translate?: TranslateFunc,
   header?: SectionChild[],
   context?: AjfContext
 ): Promise<Blob> {
   return new Promise<Blob>(resolve => {
     const t = translate ? translate : (s: string) => s;
-    const doc = formToDoc(form, t, header, context);
-    Packer.toBlob(doc).then(blob => resolve(blob));
+    loadFormImages(form, context).then(images => {
+      const doc = formToDoc(form, t, header, context, images);
+      Packer.toBlob(doc).then(blob => resolve(blob));
+    });
   });
 }
 
@@ -93,8 +95,9 @@ type SectionChild = Paragraph | Table;
 function formToDoc(
   form: AjfForm,
   translate: (s: string) => string,
-  header?: SectionChild[],
-  context?: AjfContext,
+  header: SectionChild[] | undefined,
+  context: AjfContext | undefined,
+  images: ImageMap,
 ): Document {
   const choicesMap: ChoicesMap = {};
   for (const o of form.choicesOrigins) {
@@ -104,9 +107,9 @@ function formToDoc(
   const children: SectionChild[] = header ? [...header] : [];
   for (const slide of form.nodes) {
     if (isSlideNode(slide)) {
-      children.push(...slideToDoc(slide, choicesMap, translate, context));
+      children.push(...slideToDoc(slide, choicesMap, translate, context, images));
     } else if (isRepeatingSlide(slide)) {
-      children.push(...repeatingSlideToDoc(slide, choicesMap, translate, context));
+      children.push(...repeatingSlideToDoc(slide, choicesMap, translate, context, images));
     }
   }
   return new Document({sections: [{children}]});
@@ -116,7 +119,8 @@ function slideToDoc(
   slide: AjfSlide | AjfRepeatingSlide,
   choicesMap: ChoicesMap,
   translate: (s: string) => string,
-  context?: AjfContext,
+  context: AjfContext | undefined,
+  images: ImageMap,
   rep?: number,
 ): SectionChild[] {
   let label = translate(slide.label);
@@ -126,7 +130,7 @@ function slideToDoc(
   const children: SectionChild[] = [new Paragraph({text: label, heading: HeadingLevel.HEADING_2})];
   for (const field of slide.nodes) {
     if (isField(field)) {
-      children.push(...fieldToDoc(field, choicesMap, translate, context, rep));
+      children.push(...fieldToDoc(field, choicesMap, translate, context, images, rep));
     }
   }
   return children;
@@ -136,7 +140,8 @@ function repeatingSlideToDoc(
   slide: AjfRepeatingSlide,
   choicesMap: ChoicesMap,
   translate: (s: string) => string,
-  context?: AjfContext,
+  context: AjfContext | undefined,
+  images: ImageMap,
 ): SectionChild[] {
   let repeats = 3; // default, if no formData
   const maxRepeats = 20;
@@ -149,7 +154,7 @@ function repeatingSlideToDoc(
 
   const children = [];
   for (let r = 0; r < repeats; r++) {
-    children.push(...slideToDoc(slide, choicesMap, translate, context, r));
+    children.push(...slideToDoc(slide, choicesMap, translate, context, images, r));
   }
   return children;
 }
@@ -186,7 +191,8 @@ function fieldToDoc(
   field: AjfField | AjfEmptyField,
   choicesMap: ChoicesMap,
   translate: (s: string) => string,
-  context?: AjfContext,
+  context: AjfContext | undefined,
+  images: ImageMap,
   rep?: number,
 ): SectionChild[] {
   if (field.nodeType !== AjfNodeType.AjfField) {
@@ -264,7 +270,11 @@ function fieldToDoc(
     case AjfFieldType.Signature:
       let par = new Paragraph('');
       const image = context != null && context[field.name];
-      const dataUrl = typeof image === 'object' && image.content;
+      let dataUrl = typeof image === 'object' && image.content;
+      if (typeof dataUrl !== 'string' || !dataUrl.startsWith('data:image')) {
+        const url = typeof image === 'object' && image.url;
+        dataUrl = typeof url === 'string' ? images[url] : undefined;
+      }
       if (typeof dataUrl === 'string' && dataUrl.startsWith('data:image')) {
         const i = dataUrl.indexOf(',');
         const base64 = dataUrl.slice(i + 1);

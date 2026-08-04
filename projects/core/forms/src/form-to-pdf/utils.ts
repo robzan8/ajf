@@ -20,13 +20,119 @@
  *
  */
 
+import {AjfFile} from '@ajf/core/file-input';
 import {AjfContext} from '@ajf/core/models';
 
 import {AjfChoice} from '../interface/choices/choice';
+import {AjfFieldType} from '../interface/fields/field-type';
+import {AjfForm} from '../interface/forms/form';
+import {AjfRepeatingSlide} from '../interface/slides/repeating-slide';
+import {AjfSlide} from '../interface/slides/slide';
+import {isField} from '../utils/nodes/is-field';
+import {isRepeatingSlide} from '../utils/nodes/is-repeating-slide';
+import {isSlideNode} from '../utils/nodes/is-slide-node';
 
 // ChoicesMap maps a choicesOriginRef to the list the choices.
 export interface ChoicesMap {
   [name: string]: AjfChoice<any>[];
+}
+
+// ImageMap maps image urls to dataurls, like:
+// 'http://whatever.com/image.png': 'data:image/png;base64,...'
+export interface ImageMap {
+  [url: string]: string;
+}
+
+// loadFormImages downloads the images referenced by the form's signature fields
+// (via their AjfFile.url) and returns a map from url to dataurl, analogous to
+// loadReportImages for reports.
+export function loadFormImages(form: AjfForm, context?: AjfContext): Promise<ImageMap> {
+  if (context == null) {
+    return Promise.resolve({});
+  }
+  const promises: Promise<ImageMap>[] = [];
+  for (const slide of form.nodes) {
+    if (isSlideNode(slide)) {
+      promises.push(loadSlideImages(slide, context));
+    } else if (isRepeatingSlide(slide)) {
+      promises.push(loadRepeatingSlideImages(slide, context));
+    }
+  }
+  return Promise.all(promises).then(mergeImageMaps);
+}
+
+function loadRepeatingSlideImages(slide: AjfRepeatingSlide, context: AjfContext): Promise<ImageMap> {
+  let repeats = 3; // default, if no formData
+  const maxRepeats = 20;
+  if (slide.name != null) {
+    const r = context[slide.name];
+    if (typeof r === 'number') {
+      repeats = Math.min(r, maxRepeats);
+    }
+  }
+  const promises: Promise<ImageMap>[] = [];
+  for (let r = 0; r < repeats; r++) {
+    promises.push(loadSlideImages(slide, context, r));
+  }
+  return Promise.all(promises).then(mergeImageMaps);
+}
+
+function loadSlideImages(
+  slide: AjfSlide | AjfRepeatingSlide,
+  context: AjfContext,
+  rep?: number,
+): Promise<ImageMap> {
+  const promises: Promise<ImageMap>[] = [];
+  for (const field of slide.nodes) {
+    if (isField(field) && field.fieldType === AjfFieldType.Signature) {
+      let name = field.name + (rep != null ? '__' + rep : '');
+      promises.push(loadSignatureImage(context[name]));
+    }
+  }
+  return Promise.all(promises).then(mergeImageMaps);
+}
+
+function loadSignatureImage(value: unknown): Promise<ImageMap> {
+  if (value == null || typeof value !== 'object') {
+    return Promise.resolve({});
+  }
+  const file = value as AjfFile;
+  if (typeof file.content === 'string' && file.content.startsWith('data:image')) {
+    // the image is already embedded, nothing to download.
+    return Promise.resolve({});
+  }
+  if (typeof file.url !== 'string' || file.url === '') {
+    return Promise.resolve({});
+  }
+  const url = file.url;
+  return new Promise<ImageMap>(resolve => {
+    const req = new XMLHttpRequest();
+    req.onerror = () => resolve({}); // ignore 404's
+    req.onload = () => {
+      const r = new FileReader();
+      r.onerror = () => resolve({});
+      r.onloadend = () => {
+        const result = r.result as string;
+        if (result.startsWith('data:image')) {
+          resolve({[url]: result});
+        } else {
+          resolve({});
+        }
+      };
+      r.readAsDataURL(req.response);
+    };
+    req.open('GET', url);
+    req.responseType = 'blob';
+    req.send();
+  });
+}
+
+function mergeImageMaps(maps: ImageMap[]): ImageMap {
+  let map: ImageMap = {};
+  for (const m of maps) {
+    map = {...map, ...m};
+  }
+  return map;
 }
 
 export function stripHTML(s: string): string {
