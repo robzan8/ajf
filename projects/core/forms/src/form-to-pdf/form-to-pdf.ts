@@ -42,7 +42,19 @@ import {isField} from '../utils/nodes/is-field';
 import {isRepeatingSlide} from '../utils/nodes/is-repeating-slide';
 import {isSlideNode} from '../utils/nodes/is-slide-node';
 
-import {ChoicesMap, lookupArrayFunction, lookupStringFunction, stripHTML} from './utils';
+import {ChoicesMap, ImageMap, loadFormImages, lookupArrayFunction, lookupStringFunction, stripHTML} from './utils';
+
+export function openFormPdf(
+  form: AjfForm,
+  translate?: (_: string) => string,
+  orientation?: PageOrientation,
+  header?: Content[],
+  context?: AjfContext,
+): void {
+  createFormPdf(form, translate, orientation, header, context).then(pdf => {
+    pdf.open();
+  });
+}
 
 export function createFormPdf(
   form: AjfForm,
@@ -50,19 +62,24 @@ export function createFormPdf(
   orientation?: PageOrientation,
   header?: Content[],
   context?: AjfContext,
-): TCreatedPdf {
-  const t = translate ? translate : (s: string) => s;
-  const pdfDef = formToPdf(form, t, orientation, header, context);
-  return createPdf(pdfDef);
+): Promise<TCreatedPdf> {
+  return new Promise<TCreatedPdf>(resolve => {
+    const t = translate ? translate : (s: string) => s;
+    loadFormImages(form, context).then(images => {
+      const pdfDef = formToPdf(form, t, orientation, header, context, images);
+      resolve(createPdf(pdfDef));
+    });
+  });
 }
 
 // Given an AjfForm, returns its pdfmake pdf document definition.
 function formToPdf(
   form: AjfForm,
   translate: (s: string) => string,
-  orientation?: PageOrientation,
-  header?: Content[],
-  context?: AjfContext,
+  orientation: PageOrientation | undefined,
+  header: Content[] | undefined,
+  context: AjfContext | undefined,
+  images: ImageMap,
 ): TDocumentDefinitions {
   const choicesMap: ChoicesMap = {};
   for (const o of form.choicesOrigins) {
@@ -72,9 +89,9 @@ function formToPdf(
   const content = header ? [...header] : [];
   for (const slide of form.nodes) {
     if (isSlideNode(slide)) {
-      content.push(...slideToPdf(slide, choicesMap, translate, context));
+      content.push(...slideToPdf(slide, choicesMap, translate, context, images));
     } else if (isRepeatingSlide(slide)) {
-      content.push(...repeatingSlideToPdf(slide, choicesMap, translate, context));
+      content.push(...repeatingSlideToPdf(slide, choicesMap, translate, context, images));
     }
   }
   return {content, pageOrientation: orientation};
@@ -84,7 +101,8 @@ function slideToPdf(
   slide: AjfSlide | AjfRepeatingSlide,
   choicesMap: ChoicesMap,
   translate: (s: string) => string,
-  context?: AjfContext,
+  context: AjfContext | undefined,
+  images: ImageMap,
   rep?: number,
 ): Content[] {
   let label = translate(slide.label);
@@ -94,7 +112,7 @@ function slideToPdf(
   const content: Content[] = [{text: label, fontSize: 18, bold: true, margin: [0, 15, 0, 10]}];
   for (const field of slide.nodes) {
     if (isField(field)) {
-      content.push(...fieldToPdf(field, choicesMap, translate, context, rep));
+      content.push(...fieldToPdf(field, choicesMap, translate, context, images, rep));
     }
   }
   return content;
@@ -104,7 +122,8 @@ function repeatingSlideToPdf(
   slide: AjfRepeatingSlide,
   choicesMap: ChoicesMap,
   translate: (s: string) => string,
-  context?: AjfContext,
+  context: AjfContext | undefined,
+  images: ImageMap,
 ): Content[] {
   let repeats = 3; // default, if no formData
   const maxRepeats = 20;
@@ -117,7 +136,7 @@ function repeatingSlideToPdf(
 
   const content = [];
   for (let r = 0; r < repeats; r++) {
-    content.push(...slideToPdf(slide, choicesMap, translate, context, r));
+    content.push(...slideToPdf(slide, choicesMap, translate, context, images, r));
   }
   return content;
 }
@@ -130,7 +149,8 @@ function fieldToPdf(
   field: AjfField | AjfEmptyField,
   choicesMap: ChoicesMap,
   translate: (s: string) => string,
-  context?: AjfContext,
+  context: AjfContext | undefined,
+  images: ImageMap,
   rep?: number,
 ): Content[] {
   if (field.nodeType !== AjfNodeType.AjfField) {
@@ -212,7 +232,11 @@ function fieldToPdf(
     case AjfFieldType.Signature:
       let content: Content = ' \n ';
       const image = context != null && context[field.name];
-      const dataUrl = typeof image === 'object' && image.content;
+      let dataUrl = typeof image === 'object' && image.content;
+      if (typeof dataUrl !== 'string' || !dataUrl.startsWith('data:image')) {
+        const url = typeof image === 'object' && image.url;
+        dataUrl = typeof url === 'string' ? images[url] : undefined;
+      }
       if (typeof dataUrl === 'string' && dataUrl.startsWith('data:image')) {
         content = {image: dataUrl, width: 240};
       }

@@ -26,8 +26,8 @@ import {
   AjfFormSerializer,
   AjfReadOnlyFieldComponent,
   createFieldWithChoicesInstance,
-  createFormPdf,
   downloadFormDoc,
+  openFormPdf,
 } from '@ajf/core/forms';
 import {AjfContext} from '@ajf/core/models';
 import {AjfFieldService} from '@ajf/material/forms';
@@ -107,7 +107,7 @@ export class FormsDemo {
         margin: [0, 0, 0, 10],
       },
     ];
-    createFormPdf(form, undefined, undefined, header, ctx).open();
+    openFormPdf(form, undefined, undefined, header, ctx);
   }
 
   downloadDoc() {

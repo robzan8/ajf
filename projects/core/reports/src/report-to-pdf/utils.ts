@@ -86,6 +86,9 @@ function loadWidgetImages(widget: AjfWidgetInstance): Promise<ImageMap> {
       if (image.widget.imageType !== AjfImageType.Image) {
         break;
       }
+      if (image.url.startsWith('data:image')) {
+        return Promise.resolve({[image.url]: image.url});
+      }
       return new Promise<ImageMap>(resolve => {
         const req = new XMLHttpRequest();
         req.onerror = () => resolve({}); // ignore 404's
