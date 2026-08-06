@@ -1,3 +1,14 @@
+<a name="18.4.0"></a>
+# 18.4.0 "yielding-porcupine" (2026-08-06)
+### Bug Fixes
+* **material/form-builder:** rename Date field label to Date range ([b93e7fa](https://github.com/gnucoop/ajf/commit/b93e7fa89a94be6e6e08f80e23019a6a7a1ff83a))
+### Features
+* **core/forms:** download signature images in form printing, when necessary ([7e7e34a](https://github.com/gnucoop/ajf/commit/7e7e34a5b79e5551ddbdead47bb02fcd67e0184a))
+* **core/transloco:** added some missing translations ([2ccea94](https://github.com/gnucoop/ajf/commit/2ccea944bfd86600849e7fced6cccc46e30e2301))
+* **material/forms:** changed appearance of range field with no value ([258bd3d](https://github.com/gnucoop/ajf/commit/258bd3dcc32fa3749a326da3865a7d9a25107fd1))
+
+<!-- CHANGELOG SPLIT MARKER -->
+
 <a name="18.3.2"></a>
 # 18.3.2 "definite-stingray" (2026-07-17)
 ### Bug Fixes
