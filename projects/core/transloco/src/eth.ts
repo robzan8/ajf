@@ -42,6 +42,9 @@ export const ETH: Translation = {
   'Edit condition': 'ሰርዝ5',
   'Choices': 'ሰርዝ6',
   'Identifier': 'ሰርዝ7',
+  'Default columns': 'Default columns',
+  'Select the fields that will be shown as columns in the form list page':
+    'Select the fields that will be shown as columns in the form list page',
   'New..': 'ሰርዝ8',
   'Properties': 'ሰርዝ9',
   'Visibility': 'ስቀልን ምስል0',

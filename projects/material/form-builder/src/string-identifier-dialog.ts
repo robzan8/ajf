@@ -20,18 +20,8 @@
  *
  */
 
-import {AjfFormStringIdentifier} from '@ajf/core/forms';
-import {COMMA, ENTER} from '@angular/cdk/keycodes';
-import {
-  ChangeDetectionStrategy,
-  ChangeDetectorRef,
-  Component,
-  OnDestroy,
-  ViewEncapsulation,
-} from '@angular/core';
-import {MatAutocompleteSelectedEvent} from '@angular/material/autocomplete';
-import {MatChipInputEvent} from '@angular/material/chips';
-import {MatTableDataSource} from '@angular/material/table';
+import {AjfField, AjfFormStringIdentifier} from '@ajf/core/forms';
+import {ChangeDetectionStrategy, Component, OnDestroy, ViewEncapsulation} from '@angular/core';
 import {Observable, Subscription} from 'rxjs';
 import {map, shareReplay} from 'rxjs/operators';
 
@@ -45,71 +35,42 @@ import {AjfFormBuilderService} from './form-builder-service';
   encapsulation: ViewEncapsulation.None,
 })
 export class AjfFbStringIdentifierDialogComponent implements OnDestroy {
-  readonly dataSource: MatTableDataSource<AjfFormStringIdentifier> =
-    new MatTableDataSource<AjfFormStringIdentifier>();
-  readonly displayedColumns = ['label', 'value', 'show', 'delete'];
-  readonly fields$: Observable<string[]>;
-  readonly separatorKeysCodes: number[] = [ENTER, COMMA];
+  readonly fields$: Observable<AjfField[]>;
+  selectedFieldNames: string[] = [];
 
+  private _fields: AjfField[] = [];
+  private _fieldsSub: Subscription = Subscription.EMPTY;
   private _stringIdentifierSub: Subscription = Subscription.EMPTY;
 
-  constructor(private _service: AjfFormBuilderService, private _cdr: ChangeDetectorRef) {
-    this._stringIdentifierSub = _service.stringIdentifier.subscribe(identifier => {
-      this.dataSource.data = [...identifier];
-    });
+  constructor(private _service: AjfFormBuilderService) {
     this.fields$ = _service.flatFields.pipe(
       map(fields =>
         fields
-          .sort((f1, f2) => f1.name.localeCompare(f2.name))
-          .map(f => f.name)
-          .filter(f => f.length > 0),
+          .filter(f => f.name.length > 0)
+          .sort((f1, f2) => (f1.label || f1.name).localeCompare(f2.label || f2.name)),
       ),
       shareReplay(1),
     );
-  }
-
-  addRow(): void {
-    this.dataSource.data = [...this.dataSource.data, {label: '', value: [], show: undefined}];
-  }
-
-  deleteRow(rowIdx: number): void {
-    this.dataSource.data = [
-      ...this.dataSource.data.slice(0, rowIdx),
-      ...this.dataSource.data.slice(rowIdx + 1),
-    ];
-  }
-
-  addValue(
-    row: AjfFormStringIdentifier,
-    evt: MatChipInputEvent,
-    valueInput: HTMLInputElement,
-  ): void {
-    if (evt.value.length === 0) {
-      return;
-    }
-    row.value = [...row.value, evt.value];
-    valueInput.value = '';
-    this._cdr.markForCheck();
-  }
-
-  removeValue(row: AjfFormStringIdentifier, value: string): void {
-    const idx = row.value.indexOf(value);
-    if (idx > -1) {
-      row.value = [...row.value.slice(0, idx), ...row.value.slice(idx + 1)];
-      this._cdr.markForCheck();
-    }
+    this._fieldsSub = this.fields$.subscribe(fields => {
+      this._fields = fields;
+    });
+    this._stringIdentifierSub = _service.stringIdentifier.subscribe(identifier => {
+      this.selectedFieldNames = identifier
+        .map(entry => entry.value[0])
+        .filter((name): name is string => name != null);
+    });
   }
 
   ngOnDestroy(): void {
+    this._fieldsSub.unsubscribe();
     this._stringIdentifierSub.unsubscribe();
   }
 
   saveStringIdentifier(): void {
-    this._service.saveStringIdentifier(this.dataSource.data);
-  }
-
-  selected(row: AjfFormStringIdentifier, evt: MatAutocompleteSelectedEvent): void {
-    row.value = [...row.value, evt.option.value];
-    this._cdr.markForCheck();
+    const identifier: AjfFormStringIdentifier[] = this.selectedFieldNames
+      .map(name => this._fields.find(f => f.name === name))
+      .filter((f): f is AjfField => f != null)
+      .map(f => ({label: f.label || f.name, value: [f.name]}));
+    this._service.saveStringIdentifier(identifier);
   }
 }

@@ -42,6 +42,9 @@ export const PRT: Translation = {
   'Edit condition': 'Modificar a condicao',
   'Choices': 'Escolha',
   'Identifier': 'Identificador',
+  'Default columns': 'Colunas padrão',
+  'Select the fields that will be shown as columns in the form list page':
+    'Selecione os campos que serão exibidos como colunas na página de lista de formulários',
   'New..': 'Novo..',
   'Properties': 'Propriedades',
   'Visibility': 'Visibilidade',

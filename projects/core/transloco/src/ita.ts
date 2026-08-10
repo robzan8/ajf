@@ -42,6 +42,9 @@ export const ITA: Translation = {
   'Edit condition': 'Modifica condizione',
   'Choices': 'scelte',
   'Identifier': 'Identificatori',
+  'Default columns': 'Colonne predefinite',
+  'Select the fields that will be shown as columns in the form list page':
+    'Seleziona i campi che verranno mostrati come colonne nella pagina di elenco dei form',
   'New..': 'Nuovo..',
   'Properties': 'Proprietà',
   'Visibility': 'Visibilità',

@@ -43,6 +43,9 @@ export const UKR: Translation = {
   'Edit condition': 'Edit condition',
   'Choices': 'Choices',
   'Identifier': 'Identifier',
+  'Default columns': 'Default columns',
+  'Select the fields that will be shown as columns in the form list page':
+    'Select the fields that will be shown as columns in the form list page',
   'New..': 'нова..',
   'Properties': 'Properties',
   'Visibility': 'Visibility',

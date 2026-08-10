@@ -43,6 +43,9 @@ export const ESP: Translation = {
   'Edit condition': 'Editar condición',
   'Choices': 'Elecciones',
   'Identifier': 'Identificar',
+  'Default columns': 'Columnas predeterminadas',
+  'Select the fields that will be shown as columns in the form list page':
+    'Selecciona los campos que se mostrarán como columnas en la página de lista de formularios',
   'New..': 'Nuevo..',
   'Properties': 'Propiedades',
   'Visibility': 'Visibilidad',

@@ -1,81 +1,13 @@
-<h3 matDialogTitle>{{'Edit identifier'|transloco}}</h3>
+<h3 matDialogTitle>{{'Default columns'|transloco}}</h3>
 <mat-dialog-content>
-  <button (click)="addRow()" mat-button>
-    <mat-icon>add</mat-icon>
-    <span>{{'Add value'|transloco}}</span>
-  </button>
-  <mat-table [dataSource]="dataSource">
-    <ng-container matColumnDef="label">
-      <mat-header-cell *matHeaderCellDef>{{'Label'|transloco}}</mat-header-cell>
-      <mat-cell *matCellDef="let row; let idx = index">
-        <mat-form-field>
-          <input
-            matInput
-            [placeholder]="'Label'|transloco"
-            autofocus
-            [(ngModel)]="row.label"
-          />
-        </mat-form-field>
-      </mat-cell>
-    </ng-container>
-    <ng-container matColumnDef="value">
-      <mat-header-cell *matHeaderCellDef>{{'Value'|transloco}}</mat-header-cell>
-      <mat-cell *matCellDef="let row; let idx = index">
-        <mat-form-field>
-          <mat-chip-grid #chipList>
-            <mat-chip-row
-              *ngFor="let field of row.value"
-              (removed)="removeValue(row, field)"
-            >
-              {{ field }}
-              <mat-icon matChipRemove>cancel</mat-icon>
-            </mat-chip-row>
-          </mat-chip-grid>
-          <input
-            #valueInput
-            [ngModel]="row.value"
-            [matAutocomplete]="valueAc"
-            [matChipInputFor]="chipList"
-            [matChipInputSeparatorKeyCodes]="separatorKeysCodes"
-            [matChipInputAddOnBlur]="true"
-            (matChipInputTokenEnd)="addValue(row, $event, valueInput)"
-            [placeholder]="'Value'|transloco"
-          />
-          <mat-autocomplete
-            #valueAc="matAutocomplete"
-            (optionSelected)="selected(row, $event)"
-          >
-            <mat-option *ngFor="let field of fields$ | async" [value]="field"
-              >{{field}}</mat-option
-            >
-          </mat-autocomplete>
-        </mat-form-field>
-      </mat-cell>
-    </ng-container>
-    <ng-container matColumnDef="show">
-      <mat-header-cell *matHeaderCellDef>{{'Show'|transloco}}</mat-header-cell>
-      <mat-cell *matCellDef="let row; let idx = index">
-        <mat-form-field>
-          <mat-select matNativeControl [(ngModel)]="row.show">
-            <mat-option value="all">{{'All'|transloco}}</mat-option>
-            <mat-option value="first">{{'First'|transloco}}</mat-option>
-            <mat-option value="last">{{'Last'|transloco}}</mat-option>
-          </mat-select>
-        </mat-form-field>
-      </mat-cell>
-    </ng-container>
-    <ng-container matColumnDef="delete">
-      <mat-header-cell *matHeaderCellDef
-        >{{'Delete'|transloco}}</mat-header-cell
-      >
-      <mat-cell *matCellDef="let row; let idx = index">
-        <mat-icon (click)="deleteRow(idx)">delete</mat-icon>
-      </mat-cell>
-    </ng-container>
-
-    <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
-    <mat-row *matRowDef="let row; columns: displayedColumns;"></mat-row>
-  </mat-table>
+  <p>{{'Select the fields that will be shown as columns in the form list page'|transloco}}</p>
+  <mat-form-field class="ajf-string-identifier-select">
+    <mat-select multiple [(ngModel)]="selectedFieldNames">
+      <mat-option *ngFor="let field of fields$ | async" [value]="field.name">
+        {{field.label || field.name}}
+      </mat-option>
+    </mat-select>
+  </mat-form-field>
 </mat-dialog-content>
 <mat-dialog-actions>
   <button mat-button matDialogClose (click)="saveStringIdentifier()">
