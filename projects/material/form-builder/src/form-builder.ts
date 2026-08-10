@@ -241,7 +241,6 @@ export class AjfFormBuilder implements AfterViewChecked, AfterContentInit, OnDes
       this._stringIdentifierDialog = null;
     }
     this._stringIdentifierDialog = this._dialog.open(AjfFbStringIdentifierDialogComponent, {
-      disableClose: true,
       width: '60%',
       height: '60%',
     });

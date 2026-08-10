@@ -1,0 +1,15 @@
+ajf-fb-string-identifier-dialog {
+  h3 {
+    text-align: center;
+  }
+
+  mat-dialog-actions.mat-mdc-dialog-actions {
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+
+    .mat-mdc-button-base {
+      min-width: 100px;
+    }
+  }
+}

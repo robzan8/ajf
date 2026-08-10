@@ -10,7 +10,10 @@
   </mat-form-field>
 </mat-dialog-content>
 <mat-dialog-actions>
-  <button mat-button matDialogClose (click)="saveStringIdentifier()">
+  <button mat-raised-button color="warn" matDialogClose>
+    {{'Close'|transloco}}
+  </button>
+  <button mat-raised-button color="primary" matDialogClose (click)="saveStringIdentifier()">
     {{'Save'|transloco}}
   </button>
 </mat-dialog-actions>
